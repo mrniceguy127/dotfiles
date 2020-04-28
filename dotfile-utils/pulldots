@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ ! -n "$ORIGIN" ]]; then
+  ORIGIN="$HOME/.dotfiles"
+fi
+
+cd "$ORIGIN"
+
+git pull origin master

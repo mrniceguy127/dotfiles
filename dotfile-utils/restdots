@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "Restoring dot files..."
+
+if [[ ! -n "$ORIGIN" ]]; then
+  export ORIGIN="$HOME"
+fi
+
+UTILS="$ORIGIN/.dotfiles/dotfile-utils"
+
+BAK_DEST="$ORIGIN/.dotfiles/restbak"
+mkdir -p "$BAK_DEST"
+$UTILS/backdots # Backup current dot files
+
+export ORIGIN="$HOME/.dotfiles"
+export BAK_DEST="$HOME"
+$UTILS/backdots # Restore current dotfiles by backing them up to home.
+
+echo "Done Restoring!"

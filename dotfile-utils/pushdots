@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ ! -n "$ORIGIN" ]]; then
+  ORIGIN="$HOME/.dotfiles"
+fi
+
+if [[ ! -n "$COMMIT_MSG" ]]; then
+  COMMIT_MSG="$@"
+fi
+
+
+cd "$ORIGIN" && git add "$ORIGIN" && git commit -m "$COMMIT_MSG" && git push origin master
