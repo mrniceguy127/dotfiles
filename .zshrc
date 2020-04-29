@@ -18,6 +18,9 @@ if [[ -e "$HOME/.scripts/env.zshrc" ]]; then
   source "$HOME/.scripts/env.zshrc"
 fi
 
+alias termart="$HOME/.toys/termart"
+alias ta=termart
+
 # zsh syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

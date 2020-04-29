@@ -20,6 +20,7 @@ mkdir -p "$BAK_DEST/.config/tilix/schemes/"
 mkdir -p "$BAK_DEST/.config/polybar/"
 mkdir -p "$BAK_DEST/.config/rofi/"
 mkdir -p "$BAK_DEST/.scripts/"
+mkdir -p "$BAK_DEST/.toys/"
 mkdir -p "$BAK_DEST/Wallpapers/"
 
 cp -r "$ORIGIN/.config/i3/"* "$BAK_DEST/.config/i3/"
@@ -27,10 +28,11 @@ cp -r "$ORIGIN/.config/tilix/schemes/"* "$BAK_DEST/.config/tilix/schemes/"
 cp -r "$ORIGIN/.config/polybar/"* "$BAK_DEST/.config/polybar/"
 cp -r "$ORIGIN/.config/rofi/"* "$BAK_DEST/.config/rofi/"
 cp -r "$ORIGIN/.scripts/"* "$BAK_DEST/.scripts/"
+cp -r "$ORIGIN/.toys/"* "$BAK_DEST/.toys/"
 
 while read wp; do
   cp "$ORIGIN/Wallpapers/$wp" "$BAK_DEST/Wallpapers/"
-done < "$REPO_LOC/wallpapers-to-bak"
+done < "$REPO_LOC/dotfile-utils/wallpapers-to-bak"
 
 cp "$ORIGIN/.vimrc" "$BAK_DEST/"
 cp "$ORIGIN/.zprofile" "$BAK_DEST/"
