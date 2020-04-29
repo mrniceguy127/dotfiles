@@ -63,11 +63,6 @@ set hlsearch
 
 
 
-
-
-
-
-
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
@@ -116,7 +111,7 @@ set number
 
 
 
-
+" --------------------------------------------------------------------------------------
 
 
 

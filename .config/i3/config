@@ -47,7 +47,6 @@ bindsym $mod+Return exec xst #i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # rofi
 bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command 'xst -e zsh -c \\" {cmd}; read -n 1 -s\\"' -ssh-command 'xst -e zsh -c \\"{ssh-client} {host}\\"'"
@@ -174,34 +173,14 @@ bindsym Up resize shrink height 10 px or 10 ppt
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# I COMMENTED THIS OUT
-#bar {
-#        status_command i3status
-#}
-
-
-# I MADE THIS
-
 # For i3-gaps
 for_window [class=".*"] border pixel 0
 # gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
-#gaps outer 0
 #gaps top 46 # For top bar placment
 gaps bottom 46 # For bottom bar placement
 
 gaps inner 20
 smart_borders on
-
-# Conky
-# exec --no-startup-id conky -c ~/.conkyrc
-
-# Terminal shortcut
-bindsym $mod+t exec xst
-
-# Secondary Terminal Shortcut
-#bindsym $mod+Shift+t exec xst
 
 # Pulseaudio
 exec --no-startup-id pulseaudio --start
@@ -270,7 +249,7 @@ assign [class="steam"] $ws6
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws5
 assign [class="Brave-browser"] $ws2
-assign [class="Tilix"] $ws1
+#assign [class="Tilix"] $ws1
 # Workspace assignments
 #   DP-2 (Left)
 workspace $ws5 output DP-2
@@ -285,7 +264,7 @@ workspace $ws1 output DP-4
 #   Focus Terminal Emulator
 exec --no-startup-id i3-msg "workspace number $ws1"
 #   Focus Steam / Games
-exec --no-startup-id i3-msg "workspace number $ws4"
+exec --no-startup-id i3-msg "workspace number $ws2"
 
 # i3 Startup Scripts
 exec --no-startup-id ~/.config/i3/i3-startup.sh &
@@ -336,20 +315,19 @@ bindsym $mod+Shift+o exec osu-wine --kill
 
 # Scratch pad
 # Make the currently focused window a scratchpad
-bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
-bindsym $mod+minus scratchpad show
+#bindsym $mod+minus scratchpad show
 # Toggle floating
 bindsym $mod+Shift+plus floating toggle
 
+# Focus monitor to right
+bindsym $mod+Mod1+Right focus output right
+# Focus monitor to left
+bindsym $mod+Mod1+Left focus output left
+
 # XPPen Pen config command shortcut
 bindsym $mod+grave exec ~/.config/i3/xpp-osu.sh
-
-# $mod+arrowkey ALREADY DOES THIS!!!
-##Focus monitor to right
-#bindsym $mod+Control+Right focus output right
-##Focus monitor to left
-#bindsym $mod+Control+Left focus output left
 
 #Lock screen
 # https://github.com/pavanjadhaw/betterlockscreen
@@ -361,13 +339,3 @@ bindsym $mod+Control+Shift+e exec i3-msg 'exit'
 bindsym $mod+Control+Shift+slash exec poweroff
 # Reboot shortcut
 bindsym $mod+Control+Shift+period exec reboot
-
-# Theme
-#bar {
-#  status_command i3status
-#  colors {
-#    background #1C1A35
-#  }
-#  position top
-#  font pango:DejaVu Sans Mono 12
-#}
