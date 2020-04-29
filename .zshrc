@@ -14,8 +14,8 @@ compinit
 alias aurupdate="yay -Syu"
 alias update="sudo pacman -Syyu"
 
-if [[ -e "$HOME/.scripts/env.zshrc" ]]; then
-  source "$HOME/.scripts/env.zshrc"
+if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
+  source "$HOME/.scripts/env/env.zshrc"
 fi
 
 alias termart="$HOME/.toys/termart"
