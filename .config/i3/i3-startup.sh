@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-if [[ -e "$HOME/.scripts/env.zshrc" ]]; then
-  source "$HOME/.scripts/env.zshrc"
+if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
+  source "$HOME/.scripts/env/env.zshrc"
 fi
 
 if [[ -n "$TERMATT" ]]; then
