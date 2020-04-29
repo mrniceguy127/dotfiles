@@ -5,3 +5,46 @@ Xft.rgba: rgb
 Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
+
+st.font: Hack:style=Regular:pixelsize=16:antialias=true:autohint=true;
+st.chscale: 0.8
+st.cwscale: 0.8
+
+st.shell: /bin/zsh
+
+! special
+st.foreground:   #c0c5ce
+st.background:   #2b303b
+st.cursorColor:  #ffffff
+
+! black
+st.color0:       #2b303b
+st.color8:       #65737e
+
+! red
+st.color1:       #bf616a
+st.color9:       #bf616a
+
+! green
+st.color2:       #a3be8c
+st.color10:      #a3be8c
+
+! yellow
+st.color3:       #ebcb8b
+st.color11:      #ebcb8b
+
+! blue
+st.color4:       #8fa1b3
+st.color12:      #8fa1b3
+
+! magenta
+st.color5:       #b48ead
+st.color13:      #b48ead
+
+! cyan
+st.color6:       #96b5b4
+st.color14:      #96b5b4
+
+! white
+st.color7:       #c0c5ce
+st.color15:      #eff1f5
