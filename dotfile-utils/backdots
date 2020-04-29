@@ -32,6 +32,7 @@ while read wp; do
   cp "$ORIGIN/Wallpapers/$wp" "$BAK_DEST/Wallpapers/"
 done < "$REPO_LOC/dotfile-utils/wallpapers-to-bak"
 
+cp "$ORIGIN/.config/compton.conf" "$BAK_DEST/.config/"
 cp "$ORIGIN/.vimrc" "$BAK_DEST/"
 cp "$ORIGIN/.zprofile" "$BAK_DEST/"
 cp "$ORIGIN/.zshrc" "$BAK_DEST/"

@@ -8,7 +8,7 @@ fi
 
 UTILS="$ORIGIN/.dotfiles/dotfile-utils"
 
-BAK_DEST="$ORIGIN/.dotfiles/restbak"
+export BAK_DEST="$ORIGIN/.dotfiles/restbak"
 mkdir -p "$BAK_DEST"
 $UTILS/backdots # Backup current dot files
 
