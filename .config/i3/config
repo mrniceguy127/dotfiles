@@ -198,10 +198,10 @@ smart_borders on
 # exec --no-startup-id conky -c ~/.conkyrc
 
 # Terminal shortcut
-bindsym $mod+t exec tilix
+bindsym $mod+t exec xst
 
 # Secondary Terminal Shortcut
-bindsym $mod+Shift+t exec xst
+#bindsym $mod+Shift+t exec xst
 
 # Pulseaudio
 exec --no-startup-id pulseaudio --start
