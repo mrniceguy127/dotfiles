@@ -187,7 +187,8 @@ smart_borders on
 exec --no-startup-id pulseaudio --start
 
 # Wallpaper
-set $wplock ~/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.double.png
+set $wplockdual ~/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.double.png # For dual screens
+set $wplock ~/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.png
 set $wp2 '' #~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
 set $wp1 ~/Wallpapers/nue0002.scale.1920x1080.png
 set $wp3 '' #~/Wallpapers/nue0000.2s.3n.scale.1920x1080.png
@@ -197,7 +198,7 @@ set $wp6 ~/Wallpapers/megumin0006.scaled.1920x1397.cropped.1920x1080.png
 set $wp7 ~/Wallpapers/cb-wp0004.2s.0n.scaled.2535x1080.cropped.1920x1080.png
 
 exec --no-startup-id feh --bg-fill $wp7 --bg-fill $wp7 &
-exec --no-startup-id betterlockscreen -u $wplock &
+exec --no-startup-id ~/.config/i3/betterlockscreen-cache "$wplock" "$wplockdual" &
 
 # Neat wallpaper hot key
 # WP 1
