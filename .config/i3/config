@@ -187,8 +187,12 @@ smart_borders on
 exec --no-startup-id pulseaudio --start
 
 # Wallpaper
-set $wplockdual ~/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.double.png # For dual screens
-set $wplock ~/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.png
+#   Lockscreen (Use $HOME instead of '~' so the betterlockscreen-cache bash script works!!)
+#     For dual screens
+set $wplockdual $HOME/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.double.png 
+#     For single screen
+set $wplock $HOME/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.png
+#   Desktop
 set $wp2 '' #~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
 set $wp1 ~/Wallpapers/nue0002.scale.1920x1080.png
 set $wp3 '' #~/Wallpapers/nue0000.2s.3n.scale.1920x1080.png
