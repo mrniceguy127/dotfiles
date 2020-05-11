@@ -1,8 +1,0 @@
-#!/bin/bash
-
-ART_DIR="$HOME/.toys/res/txt"
-
-cd "$ART_DIR"
-
-cat $@
-
