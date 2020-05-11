@@ -1,11 +1,11 @@
 #!/bin/bash
 
-if [[ ! -n "$ORIGIN" ]]; then
-  ORIGIN="$HOME/.dotfiles"
+if [[ ! -n "$REPO_LOC" ]]; then
+  REPO_LOC="$HOME/.dotfiles"
 fi
 
 if [[ ! -n "$COMMIT_MSG" ]]; then
   COMMIT_MSG="$@"
 fi
 
-cd "$ORIGIN" && git add "$ORIGIN" && git commit -m "$COMMIT_MSG" && git push origin master
+cd "$REPO_LOC" && git add "$REPO_LOC" && git commit -m "$COMMIT_MSG" && git push origin master

@@ -3,17 +3,22 @@
 echo "Restoring dot files..."
 
 if [[ ! -n "$ORIGIN" ]]; then
-  export ORIGIN="$HOME"
+  ORIGIN="$HOME/.dotfiles"
 fi
 
-UTILS="$ORIGIN/.dotfiles/dotfile-utils"
+if [[ ! -n "$REPO_LOC" ]]; then
+  REPO_LOC="$HOME/.dotfiles"
+fi
 
-export BAK_DEST="$ORIGIN/.dotfiles/restbak"
+if [[ ! -n "$BAK_DEST" ]]; then
+  BAK_DEST="$HOME/.dotfiles/restbak"
+fi
+
+UTILS="$REPO_LOC/dotfile-utils"
+
 mkdir -p "$BAK_DEST"
-$UTILS/backdots # Backup current dot files
+BAK_DEST="$BAK_DEST" ORIGIN="$HOME" REPO_LOC="$REPO_LOC" $UTILS/backdots # Backup current dot files
 
-export ORIGIN="$HOME/.dotfiles"
-export BAK_DEST="$HOME"
-$UTILS/backdots # Restore current dotfiles by backing them up to home.
+BAK_DEST="$HOME" ORIGIN="$ORIGIN" REPO_LOC="$REPO_LOC" $UTILS/backdots # Restore current dotfiles by backing them up to home.
 
 echo "Done Restoring!"

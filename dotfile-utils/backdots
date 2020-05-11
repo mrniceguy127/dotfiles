@@ -9,7 +9,7 @@ if [[ ! -n "$ORIGIN" ]]; then
 fi
 
 if [[ ! -n "$BAK_DEST" ]]; then
-  BAK_DEST="$ORIGIN/.dotfiles"
+  BAK_DEST="$REPO_LOC"
 fi
 
 echo  "Backing up dot files to '$BAK_DEST'..."
