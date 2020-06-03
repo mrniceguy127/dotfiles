@@ -27,6 +27,24 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Dirstack - https://wiki.archlinux.org/index.php/Zsh#Sample_.zshrc_files
 autoload -Uz add-zsh-hook
 
+# Ranger
+#   https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command
+        ranger
+        --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+    
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
+
 DIRSTACKFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/dirs"
 if [[ -f "$DIRSTACKFILE" ]] && (( ${#dirstack} == 0 )); then
 	dirstack=("${(@f)"$(< "$DIRSTACKFILE")"}")
