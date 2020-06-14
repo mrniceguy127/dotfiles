@@ -89,7 +89,7 @@ module-margin-right = 3
 
 padding-right = 3
 
-separator = |
+separator = // 
 
 background = ${colors.bg-main}
 
