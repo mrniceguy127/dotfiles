@@ -189,9 +189,9 @@ exec --no-startup-id pulseaudio --start
 # Wallpaper
 #   Lockscreen (Use $HOME instead of '~' so the betterlockscreen-cache bash script works!!)
 #     For dual screens
-set $wplockdual $HOME/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.double.png 
+set $wplockdual $HOME/Wallpapers/orig-wp0003.1s.3n.double.png
 #     For single screen
-set $wplock $HOME/Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.png
+set $wplock $HOME/Wallpapers/orig-wp0003.1s.3n.png
 #   Desktop
 set $wp2 ~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
 set $wp1 ~/Wallpapers/nue0002.rm-transp-corners.scale.1920x1080.png
@@ -232,7 +232,7 @@ bindsym $mod+Shift+KP_8 exec feh --bg-fill $wp8 --bg-fill $wp8
 bindsym $mod+Shift+KP_Up exec feh --bg-fill $wp8 --bg-fill $wp8
 
 # feh wallpaper shortcut
-bindsym $mod+Shift+w exec feh $wp1
+bindsym $mod+Shift+w exec feh $wp8
 
 # PulseAudio Volume Control Keybind
 bindsym $mod+Shift+p exec pavucontrol

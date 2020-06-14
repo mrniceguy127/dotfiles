@@ -32,7 +32,11 @@ Plugin 'VundleVim/Vundle.vim'
 " All of your Plugins must be added before the following line
 
 " Discord rich presence
-Plugin 'ananagame/vimsence'
+if has('nvim')
+  Plugin 'aurieh/discord.nvim'
+else
+  " Plugin 'ananagame/vimsence'
+endif
 " Intellisense Engine
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
