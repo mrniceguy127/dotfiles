@@ -7,8 +7,8 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Displays
-PRIM_DISP='DP-4'
-SEC_DISP='DP-2'
+PRIM_DISP=$(xrandr --listmonitors | grep '+\*' | cut -d ' ' -f 6 | tr -d '[:space:]')
+SEC_DISP=$(xrandr --listmonitors | grep -v '+\*' | cut -d ' ' -f 6 | cut -d ' ' -f 1 | tr -d '[:space:]')
 
 # Bars
 PRIM_BAR=primbar

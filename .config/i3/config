@@ -183,8 +183,8 @@ gaps inner 20
 
 smart_borders on
 
-# Pulseaudio
-exec --no-startup-id pulseaudio --start
+# Pulseaudio - Start this using systemctl!!!! (systemctl --user enable pulseaudio.service)
+#exec --no-startup-id pulseaudio --start
 
 # Wallpaper
 #   Lockscreen (Use $HOME instead of '~' so the betterlockscreen-cache bash script works!!)
