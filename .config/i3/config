@@ -201,8 +201,9 @@ set $wp5 ~/Wallpapers/ns-wp0001.2s.3n.scaled.1932x1080.cropped.1920x1080.png
 set $wp6 ~/Wallpapers/megumin0006.scaled.1920x1397.cropped.1920x1080.png
 set $wp7 ~/Wallpapers/cb-wp0004.2s.0n.scaled.2535x1080.cropped.1920x1080.png
 set $wp8 ~/Wallpapers/orig-wp0004.png
+set $wp9 ~/Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png
 
-exec --no-startup-id feh --bg-fill $wp8 --bg-fill $wp8 &
+exec --no-startup-id feh --bg-fill $wp9 --bg-fill $wp9 &
 exec --no-startup-id ~/.config/i3/betterlockscreen-cache "$wplock" "$wplockdual" &
 
 # Neat wallpaper hot key
@@ -230,9 +231,12 @@ bindsym $mod+Shift+KP_Home exec feh --bg-fill $wp7 --bg-fill $wp7
 # WP 8
 bindsym $mod+Shift+KP_8 exec feh --bg-fill $wp8 --bg-fill $wp8
 bindsym $mod+Shift+KP_Up exec feh --bg-fill $wp8 --bg-fill $wp8
+# WP 9
+bindsym $mod+Shift+KP_9 exec feh --bg-fill $wp9 --bg-fill $wp9
+bindsym $mod+Shift+KP_Prior exec feh --bg-fill $wp9 --bg-fill $wp9
 
 # feh wallpaper shortcut
-bindsym $mod+Shift+w exec feh $wp8
+bindsym $mod+Shift+w exec feh $wp9
 
 # PulseAudio Volume Control Keybind
 bindsym $mod+Shift+p exec pavucontrol
