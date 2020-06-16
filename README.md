@@ -1,8 +1,11 @@
 # Dotfiles
 
 A backup of my dotfiles.
-# Wallpaper Credit
-NOTE: Some images have been AI upscaled
+# Artwork Credit
+
+NOTE: Some images have been AI upscaled/denoised
+
+**Wallpapers**
 
 - Wallpapers/megumin0006.scaled.1920x1397.cropped.1920x1080.png - Source: Konosuba Light Novel Volume 11
 - Wallpapers/cool-wp0000.2s.3n.scaled.2122x1080.cropped.1920x1080.png - Source: UNKNOWN, but can be found [here](https://osu.ppy.sh/beatmapsets/675779)
@@ -13,6 +16,10 @@ NOTE: Some images have been AI upscaled
 - Wallpapers/orig-wp0004.png - Source: [Pixiv Artist: @焦茶](https://www.pixiv.net/en/artworks/74017219)
 - Wallpapers/th-wp0002.2s.3n.cropped.1920x1080.png - Source: UNKNOWN, but can be found [here](https://osu.ppy.sh/beatmapsets/158023) OR [here](https://www.youtube.com/watch?v=lkicMsn-s_8)
 - Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png - Source: [Pixiv Artist: @かずま](https://www.pixiv.net/en/artworks/61945190)
+
+**neofetch**
+
+- .config/neofetch/imgs/koishi0000.1s.3n.cropped.1133x1133.png - Source: [Pixiv Artist: @ぢせ](https://www.pixiv.net/en/artworks/76625949)
 
 ## dotfile-utils
 
@@ -59,7 +66,7 @@ REPO_LOC="/some/alt/location/dotfiles" ./restdots
 
 # Screenshots
 
-## 2020-04-28
+## 2020-04-28 (OUTDATED)
 
 ![Spike Spiegel (Cowbow Bebop)](screenshots/cowboy-bebop00.png)
 ![Megumin & Komekko (Konosuba)](screenshots/konosuba00.png)

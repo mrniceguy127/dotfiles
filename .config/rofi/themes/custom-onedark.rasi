@@ -1,5 +1,5 @@
 /*
- * ROFI One Dark
+ * ROFI One Dark - Edited by Matt Kleiner
  *
  * Based on OneDark.vim (https://github.com/joshdick/onedark.vim)
  *
@@ -17,11 +17,12 @@
   blue:       #6eaafb;
   mangenta:   #d886f3;
   cyan:       #6cdcf7;
-  emphasis:   #50536b;
-  text:       #dfdfdf;
-  text-alt:   #b2b2b2;
-  fg:         #abb2bf;
-  bg:         #282c34;
+  emphasis:   #111111;
+  text:       #ffffff;
+  text-alt:   #aaaaaa;
+  fg:         #000000;
+  bg:         #000000;
+  dark-gray:  #777777;
 
   spacing: 0;
   background-color: transparent;
@@ -33,7 +34,7 @@
 window {
   transparency: "real";
   fullscreen: true;
-  background-color: #282c34dd;
+  background-color: @bg;
 }
 
 mainbox {
@@ -46,12 +47,12 @@ inputbar {
 }
 
 prompt {
-  text-color: @blue;
+  text-color: @dark-gray;
 }
 
 textbox-prompt-colon {
   expand: false;
-  str: ":";
+  str: " ~>";
   text-color: @text-alt;
 }
 
@@ -69,7 +70,6 @@ element {
   padding: 5px;
   text-color: @text-alt;
   highlight: bold #95ee8f; /* green */
-  border-radius: 3px;
 }
 
 element selected {
