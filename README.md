@@ -27,5 +27,5 @@ NOTE: Some images have been AI upscaled/denoised
 # Screenshots
 
 ![Preview 1](screenshots/koishi-theme-prev0000.png)
-![Preview 2](screenshots/koishi-theme-prev0001.png)
-![Preview 3](screenshots/koishi-theme-prev0002.png)
+![Preview 2](screenshots/koishi-theme-prev0002.png)
+![Preview 3](screenshots/koishi-theme-prev0001.png)
