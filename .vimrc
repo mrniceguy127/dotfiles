@@ -48,7 +48,7 @@ call vundle#end()            " required
 
 " Colors
 set t_Co=256
-silent! colorscheme odyssey
+silent! colorscheme odyssey " Download here: https://github.com/ludokng/vim-odyssey
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
