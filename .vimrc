@@ -32,18 +32,24 @@ Plugin 'VundleVim/Vundle.vim'
 " All of your Plugins must be added before the following line
 
 " Discord rich presence
-if has('nvim')
-  Plugin 'aurieh/discord.nvim'
-else
-  " Plugin 'ananagame/vimsence'
+if $USE_DRPC == "1"
+  if has('nvim')
+    Plugin 'aurieh/discord.nvim' " See discord.nvim README: https://github.com/aurieh/discord.nvim
+  else
+    " Plugin 'ananagame/vimsence'
+  endif
 endif
+
 " Intellisense Engine
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 call vundle#end()            " required
 
 
- 
+" Colors
+set t_Co=256
+silent! colorscheme odyssey
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
