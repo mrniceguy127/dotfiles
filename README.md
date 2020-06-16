@@ -4,7 +4,7 @@ A backup of my dotfiles.
 
 **SEE THE [WIKI](https://github.com/mrniceguy127/dotfiles/wiki) FOR MORE INFORMATION**
 
-# Artwork Credit
+# Artwork Credits
 
 NOTE: Some images have been AI upscaled/denoised
 
@@ -26,4 +26,5 @@ NOTE: Some images have been AI upscaled/denoised
 
 # Screenshots
 
-*Will readd shortly once I get new ones!*
+![Preview 1](screenshots/koishi-theme-prev0000.png)
+![Preview 2](screenshots/koishi-theme-prev0001.png)
