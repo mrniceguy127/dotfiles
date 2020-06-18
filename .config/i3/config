@@ -41,15 +41,13 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt #i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-# rofi
-bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command 'urxvt -e zsh -c \\" {cmd}; read -n 1 -s\\"' -ssh-command 'urxvt -e zsh -c \\"{ssh-client} {host}\\"'"
 
 # change focus
 bindsym $mod+j focus left
@@ -100,19 +98,6 @@ bindsym $mod+a focus parent
 
 # focus the child container
 bindsym $mod+Shift+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 main"
-set $ws2 "2 web"
-set $ws3 "3 chat"
-set $ws4 "4 game"
-set $ws5 "5 misc"
-set $ws6 "6 launchers"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10 clutter"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -173,18 +158,41 @@ bindsym Up resize shrink height 10 px or 10 ppt
 
 bindsym $mod+r mode "resize"
 
+# Vars -----------------------------------------
+
+# Workspaces
+
+set $ws1 "1 main"
+set $ws2 "2 web"
+set $ws3 "3 chat"
+set $ws4 "4 game"
+set $ws5 "5 misc"
+set $ws6 "6 launchers"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10 clutter"
+
+# Environment
+
+set $scripts_dir ~/.config/i3/scripts
+set $terminal urxvt
+
+# Main -----------------------------------------
+
+# start a terminal
+bindsym $mod+Return exec urxvt
+
+# Start rofi (program launcher)
+bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command '$terminal -e zsh -c \\" {cmd}; read -n 1 -s\\"' -ssh-command '$terminal -e zsh -c \\"{ssh-client} {host}\\"'"
+
+
 # For i3-gaps
 for_window [class=".*"] border pixel 0
 # gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
-#gaps top 46 # For top bar placment
 gaps bottom 36 # For bottom bar placement
-
 gaps inner 20
-
 smart_borders on
-
-# Pulseaudio - Start this using systemctl!!!! (systemctl --user enable pulseaudio.service)
-#exec --no-startup-id pulseaudio --start
 
 # Wallpaper
 #   Lockscreen (Use $HOME instead of '~' so the betterlockscreen-cache bash script works!!)
@@ -204,36 +212,27 @@ set $wp8 ~/Wallpapers/orig-wp0004.png
 set $wp9 ~/Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png
 
 exec --no-startup-id feh --bg-fill $wp9 --bg-fill $wp9 &
-exec --no-startup-id ~/.config/i3/betterlockscreen-cache "$wplock" "$wplockdual" &
+exec --no-startup-id $scripts_dir/betterlockscreen-cache "$wplock" "$wplockdual" &
 
 # Neat wallpaper hot key
 # WP 1
-bindsym $mod+Shift+KP_1 exec feh --bg-fill $wp1 --bg-fill $wp1
-bindsym $mod+Shift+KP_End exec feh --bg-fill $wp1 --bg-fill $wp1
+bindsym $mod+Control+1 exec feh --bg-fill $wp1 --bg-fill $wp1
 # WP 2
-bindsym $mod+Shift+KP_2 exec feh --bg-fill $wp2 --bg-fill $wp2
-bindsym $mod+Shift+KP_Down exec feh --bg-fill $wp2 --bg-fill $wp2
+bindsym $mod+Control+2 exec feh --bg-fill $wp2 --bg-fill $wp2
 # WP 3
-bindsym $mod+Shift+KP_3 exec feh --bg-fill $wp3 --bg-fill $wp3
-bindsym $mod+Shift+KP_Next exec feh --bg-fill $wp3 --bg-fill $wp3
+bindsym $mod+Control+3 exec feh --bg-fill $wp3 --bg-fill $wp3
 # WP 4
-bindsym $mod+Shift+KP_4 exec feh --bg-fill $wp4 --bg-fill $wp4
-bindsym $mod+Shift+KP_Left exec feh --bg-fill $wp4 --bg-fill $wp4
+bindsym $mod+Control+4 exec feh --bg-fill $wp4 --bg-fill $wp4
 # WP 5
-bindsym $mod+Shift+KP_5 exec feh --bg-fill $wp5 --bg-fill $wp5
-bindsym $mod+Shift+KP_Begin exec feh --bg-fill $wp5 --bg-fill $wp5
+bindsym $mod+Control+5 exec feh --bg-fill $wp5 --bg-fill $wp5
 # WP 6
-bindsym $mod+Shift+KP_6 exec feh --bg-fill $wp6 --bg-fill $wp6
-bindsym $mod+Shift+KP_Right exec feh --bg-fill $wp6 --bg-fill $wp6
+bindsym $mod+Control+6 exec feh --bg-fill $wp6 --bg-fill $wp6
 # WP 7
-bindsym $mod+Shift+KP_7 exec feh --bg-fill $wp7 --bg-fill $wp7
-bindsym $mod+Shift+KP_Home exec feh --bg-fill $wp7 --bg-fill $wp7
+bindsym $mod+Control+7 exec feh --bg-fill $wp7 --bg-fill $wp7
 # WP 8
-bindsym $mod+Shift+KP_8 exec feh --bg-fill $wp8 --bg-fill $wp8
-bindsym $mod+Shift+KP_Up exec feh --bg-fill $wp8 --bg-fill $wp8
+bindsym $mod+Control+8 exec feh --bg-fill $wp8 --bg-fill $wp8
 # WP 9
-bindsym $mod+Shift+KP_9 exec feh --bg-fill $wp9 --bg-fill $wp9
-bindsym $mod+Shift+KP_Prior exec feh --bg-fill $wp9 --bg-fill $wp9
+bindsym $mod+Control+9 exec feh --bg-fill $wp9 --bg-fill $wp9
 
 # feh wallpaper shortcut
 bindsym $mod+Shift+w exec feh $wp9
@@ -256,13 +255,13 @@ bindsym $mod+Control+Shift+Return exec qutebrowser
 bindsym $mod+n exec kill -s USR1 $(pidof deadd-notification-center)
 
 # Start compositor keybind
-bindsym $mod+Control+Shift+c exec ~/.config/i3/compton.sh
+bindsym $mod+Control+Shift+c exec $scripts_dir/compton.sh
 
 # Start compositor
-exec --no-startup-id ~/.config/i3/compton.sh &
+exec --no-startup-id $scripts_dir/compton.sh &
 
 # Polybar
-exec --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id $scripts_dir/launch.sh &
 
 # Window assignments
 assign [class="Wine"] $ws4
@@ -274,47 +273,15 @@ assign [class="Brave-browser"] $ws2
 #assign [class="qutebrowser"] $ws2
 for_window [class="Spotify"] move to workspace $ws2 # assign [class="Spotify"] $ws2 # Known issue with spotify, use work around
 for_window [class="Spotify"] layout tabbed
-#assign [class="Tilix"] $ws1
-# Workspace assignments
-#   DP-2 (Left)
-workspace $ws5 output DP-2
-workspace $ws3 output DP-2
-workspace $ws2 output DP-2
-#workspace $ws1 output DP-2
-#   DP-4 (Primary)
-workspace $ws4 output DP-4
-workspace $ws6 output DP-4
-workspace $ws1 output DP-4
+
 # Finishing touches!
 #   Focus Main
-exec --no-startup-id i3-msg "workspace number $ws1"
+#exec --no-startup-id i3-msg "workspace number $ws1"
 #   Focus Browser
-exec --no-startup-id i3-msg "workspace number $ws2"
+#exec --no-startup-id i3-msg "workspace number $ws2"
 
 # i3 Startup Scripts
-exec --no-startup-id ~/.config/i3/i3-startup.sh &
-
-# Numpad Workspace Switcher
-# With numlock
-bindsym $mod+Mod2+KP_1 workspace number $ws1
-bindsym $mod+Mod2+KP_2 workspace number $ws2
-bindsym $mod+Mod2+KP_3 workspace number $ws3
-bindsym $mod+Mod2+KP_4 workspace number $ws4
-bindsym $mod+Mod2+KP_5 workspace number $ws5
-bindsym $mod+Mod2+KP_6 workspace number $ws6
-bindsym $mod+Mod2+KP_7 workspace number $ws7
-bindsym $mod+Mod2+KP_8 workspace number $ws8
-bindsym $mod+Mod2+KP_9 workspace number $ws9
-# Without numlock
-bindsym $mod+KP_End workspace number $ws1
-bindsym $mod+KP_Down workspace number $ws2
-bindsym $mod+KP_Next workspace number $ws3
-bindsym $mod+KP_Left workspace number $ws4
-bindsym $mod+KP_Begin workspace number $ws5
-bindsym $mod+KP_Right workspace number $ws6
-bindsym $mod+KP_Home workspace number $ws7
-bindsym $imod+KP_Up workspace number $ws8
-bindsym $mod+KP_Prior workspace number $ws9
+exec --no-startup-id $scripts_dir/i3-startup.sh &
 
 # Move work space to other monitor
 bindsym $mod+Control+Left move workspace to output left
@@ -334,18 +301,18 @@ bindsym $mod+Control+Shift+y exec xrandr --output DP-4 --mode 1280x960 --rate 60
 bindsym $mod+Shift+y exec xrandr --output DP-4 --mode 1920x1080 --rate 144.00
 #   osu!
 #     start
-bindsym $mod+Control+Shift+o exec ~/.config/i3/osu.sh
+bindsym $mod+Control+Shift+o exec $scripts_dir/osu.sh
 #     kill
-bindsym $mod+Shift+o exec ~/.config/i3/osu-kill.sh
+bindsym $mod+Shift+o exec $scripts_dir/osu-kill.sh
 #   Touhou Luna Nights
 #     start
 bindsym $mod+Control+Shift+n exec xdg-open steam://run/851100
 
 # Noise supression
 #   Enable
-bindsym $mod+Control+Shift+h exec ~/.config/i3/noise-supress
+bindsym $mod+Control+Shift+h exec $scripts_dir/noise-supress
 #   Disable
-bindsym $mod+Shift+h exec ~/.config/i3/unnoise-supress
+bindsym $mod+Shift+h exec $scripts_dir/unnoise-supress
 
 # Scratch pad
 # Make the currently focused window a scratchpad
@@ -361,7 +328,7 @@ bindsym $mod+Mod1+Right focus output right
 bindsym $mod+Mod1+Left focus output left
 
 # XPPen Pen config command shortcut
-bindsym $mod+grave exec ~/.config/i3/xpp-osu.sh
+bindsym $mod+grave exec $scripts_dir/xpp-osu.sh
 
 #Lock screen
 # https://github.com/pavanjadhaw/betterlockscreen
