@@ -177,6 +177,8 @@ set $ws10 "10 clutter"
 
 set $scripts_dir ~/.config/i3/scripts
 set $terminal urxvt
+set $disp_prim DP-4 # EDIT ME AS NEEDED - Primary display name
+set $disp_sec DP-2 # EDIT ME AS NEEDED - Secondary monitor for dual monitor setups
 
 # Main -----------------------------------------
 
@@ -211,7 +213,7 @@ set $wp7 ~/Wallpapers/cb-wp0004.2s.0n.scaled.2535x1080.cropped.1920x1080.png
 set $wp8 ~/Wallpapers/orig-wp0004.png
 set $wp9 ~/Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png
 
-exec --no-startup-id feh --bg-fill $wp9 --bg-fill $wp9 &
+exec --no-startup-id feh --bg-fill $wp9 &
 exec --no-startup-id $scripts_dir/betterlockscreen-cache "$wplock" "$wplockdual" &
 
 # Neat wallpaper hot key
@@ -261,7 +263,7 @@ bindsym $mod+Control+Shift+c exec $scripts_dir/compton.sh
 exec --no-startup-id $scripts_dir/compton.sh &
 
 # Polybar
-exec --no-startup-id $scripts_dir/launch.sh &
+exec --no-startup-id ~/.config/polybar/launch.sh &
 
 # Window assignments
 assign [class="Wine"] $ws4
@@ -296,9 +298,9 @@ bindsym $mod+Shift+s exec maim -s --format=png /dev/stdout | xclip -selection cl
 # Game shortcuts
 #   Touhou
 #    Touhou Mode
-bindsym $mod+Control+Shift+y exec xrandr --output DP-4 --mode 1280x960 --rate 60.00
-#    Un-Touhou Mode
-bindsym $mod+Shift+y exec xrandr --output DP-4 --mode 1920x1080 --rate 144.00
+bindsym $mod+Control+Shift+y exec xrandr --output $disp_prim --mode 1280x960 --rate 60.00
+#    Un-Touhog Mode
+bindsym $mod+Shift+y exec xrandr --output $disp_prim --mode 1920x1080 --rate 144.00
 #   osu!
 #     start
 bindsym $mod+Control+Shift+o exec $scripts_dir/osu.sh
