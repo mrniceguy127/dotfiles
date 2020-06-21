@@ -4,6 +4,8 @@ A backup of my dotfiles.
 
 **SEE THE [WIKI](https://github.com/mrniceguy127/dotfiles/wiki) FOR MORE INFORMATION**
 
+I've also included scripts to set everything up for you. Info on that is also on the wiki.
+
 # Artwork Credits
 
 NOTE: Some images have been AI upscaled/denoised
