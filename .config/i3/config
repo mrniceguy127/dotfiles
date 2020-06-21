@@ -190,13 +190,6 @@ set $scripts_dir ~/.config/i3/scripts
 set $terminal urxvt
 set $shell zsh
 
-#   EDIT ME AS NEEDED - Primary display name
-set $disp_prim DP-4
-#   EDIT ME AS NEEDED - Secondary monitor for dual monitor setups
-set $disp_sec DP-2
-
-
-
 
 # Main -----------------------------------------
 

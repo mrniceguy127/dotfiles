@@ -6,6 +6,6 @@ fi
 
 if [[ -n "$TERMATT" ]]; then
   $TERMATT osu-wine-rpc &
+  osu-wine
 fi
 
-osu-wine
