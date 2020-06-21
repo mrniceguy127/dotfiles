@@ -11,15 +11,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-alias aurupdate="yay -Syu"
-alias update="sudo pacman -Syyu"
-
 if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
   source "$HOME/.scripts/env/env.zshrc"
 fi
 
+alias aurupdate="yay -Syu"
+alias update="sudo pacman -Syyu"
 alias termart="$HOME/.toys/termart"
 alias ta=termart
+alias open="xdg-open"
 
 # zsh syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -177,9 +177,11 @@ set $ws10 "10 clutter"
 
 set $scripts_dir ~/.config/i3/scripts
 set $terminal urxvt
-set $disp_prim DP-4 # EDIT ME AS NEEDED - Primary display name
-set $disp_sec DP-2 # EDIT ME AS NEEDED - Secondary monitor for dual monitor setups
 
+#   EDIT ME AS NEEDED - Primary display name
+set $disp_prim DP-4
+#   EDIT ME AS NEEDED - Secondary monitor for dual monitor setups
+set $disp_sec DP-2
 # Main -----------------------------------------
 
 # start a terminal
