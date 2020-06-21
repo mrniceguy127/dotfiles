@@ -158,7 +158,14 @@ bindsym Up resize shrink height 10 px or 10 ppt
 
 bindsym $mod+r mode "resize"
 
+
+
+
+
 # Vars -----------------------------------------
+
+
+
 
 # Workspaces
 
@@ -173,22 +180,35 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10 clutter"
 
+# Misc 
+
+set $lockscreenmsg "Come back two hours earlier."
+
 # Environment
 
 set $scripts_dir ~/.config/i3/scripts
 set $terminal urxvt
+set $shell zsh
 
 #   EDIT ME AS NEEDED - Primary display name
 set $disp_prim DP-4
 #   EDIT ME AS NEEDED - Secondary monitor for dual monitor setups
 set $disp_sec DP-2
+
+
+
+
 # Main -----------------------------------------
+
+
+
+
 
 # start a terminal
 bindsym $mod+Return exec urxvt
 
 # Start rofi (program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command '$terminal -e zsh -c \\" {cmd}; read -n 1 -s\\"' -ssh-command '$terminal -e zsh -c \\"{ssh-client} {host}\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command '$terminal -e $shell -c \\" {cmd}; read -n 1 -s\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
 
 
 # For i3-gaps
@@ -220,23 +240,23 @@ exec --no-startup-id $scripts_dir/betterlockscreen-cache "$wplock" "$wplockdual"
 
 # Neat wallpaper hot key
 # WP 1
-bindsym $mod+Control+1 exec feh --bg-fill $wp1 --bg-fill $wp1
+bindsym $mod+Control+1 exec feh --bg-fill $wp1
 # WP 2
-bindsym $mod+Control+2 exec feh --bg-fill $wp2 --bg-fill $wp2
+bindsym $mod+Control+2 exec feh --bg-fill $wp2
 # WP 3
-bindsym $mod+Control+3 exec feh --bg-fill $wp3 --bg-fill $wp3
+bindsym $mod+Control+3 exec feh --bg-fill $wp3
 # WP 4
-bindsym $mod+Control+4 exec feh --bg-fill $wp4 --bg-fill $wp4
+bindsym $mod+Control+4 exec feh --bg-fill $wp4
 # WP 5
-bindsym $mod+Control+5 exec feh --bg-fill $wp5 --bg-fill $wp5
+bindsym $mod+Control+5 exec feh --bg-fill $wp5
 # WP 6
-bindsym $mod+Control+6 exec feh --bg-fill $wp6 --bg-fill $wp6
+bindsym $mod+Control+6 exec feh --bg-fill $wp6
 # WP 7
-bindsym $mod+Control+7 exec feh --bg-fill $wp7 --bg-fill $wp7
+bindsym $mod+Control+7 exec feh --bg-fill $wp7
 # WP 8
-bindsym $mod+Control+8 exec feh --bg-fill $wp8 --bg-fill $wp8
+bindsym $mod+Control+8 exec feh --bg-fill $wp8
 # WP 9
-bindsym $mod+Control+9 exec feh --bg-fill $wp9 --bg-fill $wp9
+bindsym $mod+Control+9 exec feh --bg-fill $wp9
 
 # feh wallpaper shortcut
 bindsym $mod+Shift+w exec feh $wp9
@@ -258,11 +278,14 @@ bindsym $mod+Control+Shift+Return exec qutebrowser
 # Notification Center Toggle
 bindsym $mod+n exec kill -s USR1 $(pidof deadd-notification-center)
 
-# Start compositor keybind
-bindsym $mod+Control+Shift+c exec $scripts_dir/compton.sh
+# Compositor
+#   Start keybind
+bindsym $mod+Control+Shift+c exec $scripts_dir/compton
+#   Kill keybind
+bindsym $mod+Control+c exec $scripts_dir/compton-kill
 
 # Start compositor
-exec --no-startup-id $scripts_dir/compton.sh &
+exec --no-startup-id $scripts_dir/compton &
 
 # Polybar
 exec --no-startup-id ~/.config/polybar/launch.sh &
@@ -278,14 +301,8 @@ assign [class="Brave-browser"] $ws2
 for_window [class="Spotify"] move to workspace $ws2 # assign [class="Spotify"] $ws2 # Known issue with spotify, use work around
 for_window [class="Spotify"] layout tabbed
 
-# Finishing touches!
-#   Focus Main
-#exec --no-startup-id i3-msg "workspace number $ws1"
-#   Focus Browser
-#exec --no-startup-id i3-msg "workspace number $ws2"
-
 # i3 Startup Scripts
-exec --no-startup-id $scripts_dir/i3-startup.sh &
+exec --no-startup-id $scripts_dir/i3-startup &
 
 # Move work space to other monitor
 bindsym $mod+Control+Left move workspace to output left
@@ -300,17 +317,17 @@ bindsym $mod+Shift+s exec maim -s --format=png /dev/stdout | xclip -selection cl
 # Game shortcuts
 #   Touhou
 #    Touhou Mode
-bindsym $mod+Control+Shift+y exec xrandr --output $disp_prim --mode 1280x960 --rate 60.00
-#    Un-Touhog Mode
-bindsym $mod+Shift+y exec xrandr --output $disp_prim --mode 1920x1080 --rate 144.00
+bindsym $mod+Control+Shift+y exec $scripts_dir/touhou-mode
+#    Un-Touhou Mode
+bindsym $mod+Shift+y exec $scripts_dir/un-touhou-mode
 #   osu!
 #     start
-bindsym $mod+Control+Shift+o exec $scripts_dir/osu.sh
+bindsym $mod+Control+Shift+o exec $scripts_dir/osu
 #     kill
-bindsym $mod+Shift+o exec $scripts_dir/osu-kill.sh
+bindsym $mod+Shift+o exec $scripts_dir/osu-kill
 #   Touhou Luna Nights
 #     start
-bindsym $mod+Control+Shift+n exec xdg-open steam://run/851100
+bindsym $mod+Control+Shift+n exec $scripts_dir/touhou-ln
 
 # Noise supression
 #   Enable
@@ -332,11 +349,10 @@ bindsym $mod+Mod1+Right focus output right
 bindsym $mod+Mod1+Left focus output left
 
 # XPPen Pen config command shortcut
-bindsym $mod+grave exec $scripts_dir/xpp-osu.sh
+bindsym $mod+grave exec $scripts_dir/xpp-osu
 
 #Lock screen
-# https://github.com/pavanjadhaw/betterlockscreen
-set $lockscreenmsg "Come back two hours earlier."
+# betterlockscreen https://github.com/pavanjadhaw/betterlockscreen
 bindsym $mod+Control+Shift+l exec betterlockscreen -l -t $lockscreenmsg
 # Logout immediately shortcut
 bindsym $mod+Control+Shift+e exec i3-msg 'exit'

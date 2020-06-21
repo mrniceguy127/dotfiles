@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# Displays
+PRIM_DISP=$(xrandr --listmonitors | grep '+\*' | cut -d ' ' -f 6 | tr -d '[:space:]')
+SEC_DISP=$(xrandr --listmonitors | grep -v '+\*' | cut -d ' ' -f 6 | cut -d ' ' -f 1 | tr -d '[:space:]')
+
+if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
+  source "$HOME/.scripts/env/env.zshrc"
+fi
+
+if [[ -n "$TERMATT" ]]; then
+  xrandr --output $PRIM_DISP --mode 1280x960 --rate 60.00
+fi
