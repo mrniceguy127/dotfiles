@@ -6,6 +6,5 @@ fi
 
 
 if [[ -n "$TERMATT" ]]; then
-  echo "woot"
   $TERMATT unnoise-supress
 fi
