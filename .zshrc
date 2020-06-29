@@ -20,6 +20,15 @@ alias update="sudo pacman -Syyu"
 alias termart="$HOME/.toys/termart"
 alias ta=termart
 alias open="xdg-open"
+alias plz="sudo !!"
+alias install="sudo pacman -S"
+alias ..="cd .."
+alias grep="grep --color=auto"
+alias ls="ls --color"
+
+# Quick command navigation
+bindkey "^[Od" backward-word
+bindkey "^[Oc" forward-word
 
 # zsh syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

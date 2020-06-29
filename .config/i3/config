@@ -218,8 +218,9 @@ set $wplockdual $HOME/Wallpapers/orig-wp0003.1s.3n.double.png
 #     For single screen
 set $wplock $HOME/Wallpapers/orig-wp0003.1s.3n.png
 #   Desktop
-set $wp2 ~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
+set $wp0 ~/Wallpapers/jibril0017.png
 set $wp1 ~/Wallpapers/nue0002.rm-transp-corners.scale.1920x1080.png
+set $wp2 ~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
 set $wp3 ~/Wallpapers/nue0000.2s.3n.scale.1920x1080.png
 set $wp4 ~/Wallpapers/cool-wp0000.2s.3n.scaled.2122x1080.cropped.1920x1080.png
 set $wp5 ~/Wallpapers/ns-wp0001.2s.3n.scaled.1932x1080.cropped.1920x1080.png
@@ -228,10 +229,12 @@ set $wp7 ~/Wallpapers/cb-wp0004.2s.0n.scaled.2535x1080.cropped.1920x1080.png
 set $wp8 ~/Wallpapers/orig-wp0004.png
 set $wp9 ~/Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png
 
-exec --no-startup-id feh --bg-fill $wp9 &
+exec --no-startup-id $scripts_dir/set-wp $wp9 &
 exec --no-startup-id $scripts_dir/betterlockscreen-cache "$wplock" "$wplockdual" &
 
 # Neat wallpaper hot key
+# WP 0
+bindsym $mod+Control+0 exec feh --bg-fill $wp0
 # WP 1
 bindsym $mod+Control+1 exec feh --bg-fill $wp1
 # WP 2
@@ -286,7 +289,7 @@ exec --no-startup-id ~/.config/polybar/launch.sh &
 # Window assignments
 assign [class="Wine"] $ws4
 assign [class="Steam"] $ws6
-assign [class="steam"] $ws6
+for_window [class="Steam"] layout tabbed
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws5
 assign [class="Brave-browser"] $ws2

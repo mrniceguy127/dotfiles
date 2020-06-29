@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DEFAULTWP="$1" # Default wallpaper if it hasn't been set before
+FEHBG="$HOME/.fehbg" # Last feh bg command script.
+
+if [[ -e "$FEHBG" ]]; then
+  $FEHBG
+else
+  feh --bg-fill "$DEFAULTWP"
+fi
