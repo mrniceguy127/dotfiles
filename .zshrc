@@ -19,8 +19,10 @@ alias aurupdate="yay -Syu"
 alias update="sudo pacman -Syyu"
 alias termart="$HOME/.toys/termart"
 alias ta=termart
+alias nue='ta nue'
+alias kanna='ta kanna'
 alias open="xdg-open"
-alias plz="sudo !!"
+#alias plz='sudo !!' # '!!: Command not found' ???
 alias install="sudo pacman -S"
 alias ..="cd .."
 alias grep="grep --color=auto"
@@ -79,3 +81,9 @@ autoload -Uz promptinit
 promptinit
 # My Settings
 prompt fade blue
+
+PROMPT_FIRST='%F{blue}%K{black}█▓▒░%f%k%F{15}%K{blue}%n@%m%f%F{blue}%k%K{black}▓▒░%f%k'
+#PROMPT_GIT="[$(git branch 2> /dev/null | cut -d ' ' -f 2)]"
+PROMPT_DATETIME="%K $(date +"%D %T")%f%k"
+PROMPT_SECOND='%F{blue}%B%~ #%b%f '
+PROMPT="$(printf '$PROMPT_FIRST$PROMPT_DATETIME\n$PROMPT_SECOND')"

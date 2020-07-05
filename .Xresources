@@ -26,7 +26,7 @@ st.cwscale: 0.8
 
 ! Special
 *foreground:	#cbe1e7
-*background:	#1e1c31
+*background:	#1a1a1a
 *cursorColor:	#ffffff
 
 ! Black
@@ -46,8 +46,8 @@ st.cwscale: 0.8
 *color11:	#ffe9aa
 
 ! Blue
-*color4:	#65b2ff
-*color12:	#91ddff
+*color4:	#223b75
+*color12:	#bacdff
 
 ! Magenta
 *color5:	#906cff
