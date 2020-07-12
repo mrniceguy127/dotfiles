@@ -203,7 +203,7 @@ set $shell zsh
 bindsym $mod+Return exec urxvt
 
 # Start rofi (program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command '$terminal -e $shell -c \\" {cmd}; read -n 1 -s\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons -show drun -font \\"DejaVu 9\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
 
 
 # For i3-gaps
@@ -264,7 +264,7 @@ bindsym $mod+Shift+p exec pavucontrol
 
 # File Managers
 #   Nautilus keybind (GUI)
-bindsym $mod+Shift+n exec nautilus
+bindsym $mod+Shift+f exec nautilus
 #   Ranger keybind (Terminal-based)
 bindsym $mod+Shift+Return exec urxvt -e ranger ~
 

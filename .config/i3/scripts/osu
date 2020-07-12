@@ -5,7 +5,10 @@ if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
 fi
 
 if [[ -n "$TERMATT" ]]; then
+  OSU_CKB_PIPE="/tmp/ckbpipe000"
+  echo "rgb ffffffff" > "$OSU_CKB_PIPE"
   $TERMATT osu-wine-rpc &
   osu-wine
+  echo "rgb 00000000" > "$OSU_CKB_PIPE"
 fi
 

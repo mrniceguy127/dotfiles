@@ -5,6 +5,7 @@ if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
 fi
 
 if [[ -n "$TERMATT" ]]; then
-  xdg-open steam://run/851100
+  THLN_CKB_PIPE="/tmp/ckbpipe001"
+  steam "steam://run/851100"
 fi
 
