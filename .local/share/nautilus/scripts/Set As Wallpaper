@@ -1,0 +1,5 @@
+#!/bin/bash
+
+WALLP="$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+
+feh --bg-fill $WALLP
