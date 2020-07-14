@@ -1,0 +1,7 @@
+#!/bin/bash
+
+WP_CONF=$1
+
+USE_WP_CONF="$HOME/.scripts/usewpconf $WP_CONF"
+
+$USE_WP_CONF

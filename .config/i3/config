@@ -220,43 +220,35 @@ set $wplockdual $HOME/Wallpapers/orig-wp0003.1s.3n.double.png
 #     For single screen
 set $wplock $HOME/Wallpapers/orig-wp0003.1s.3n.png
 #   Desktop
-set $wp1 ~/Wallpapers/nue0002.rm-transp-corners.scale.1920x1080.png
-set $wp2 ~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
-set $wp3 ~/Wallpapers/nue0000.2s.3n.scale.1920x1080.png
-set $wp4 ~/Wallpapers/cool-wp0000.2s.3n.scaled.2122x1080.cropped.1920x1080.png
-set $wp5 ~/Wallpapers/orig-wp0001.2s.3n.scaled.1932x1080.cropped.1920x1080.png
-set $wp6 ~/Wallpapers/megumin0006.scaled.1920x1397.cropped.1920x1080.png
-set $wp7 ~/Wallpapers/cb-wp0004.2s.0n.scaled.2535x1080.cropped.1920x1080.png
-set $wp8 ~/Wallpapers/orig-wp0004.png
-set $wp9 ~/Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png
+set $wpdefault ~/Wallpapers/koishi0007.cropped.1600x900.2s.0n.cropped.1920x1080.png
 
-exec --no-startup-id $scripts_dir/set-wp $wp9 &
+exec --no-startup-id $scripts_dir/set-wp $wpdefault &
 exec --no-startup-id $scripts_dir/betterlockscreen-cache "$wplock" "$wplockdual" &
 
 # Neat wallpaper hot key
 # WP 0
-bindsym $mod+Control+0 exec $scripts_dir/use-non-preset-wp
+bindsym $mod+Control+0 exec $scripts_dir/usewpconf 0
 # WP 1
-bindsym $mod+Control+1 exec feh --bg-fill $wp1
+bindsym $mod+Control+1 exec $scripts_dir/usewpconf 1
 # WP 2
-bindsym $mod+Control+2 exec feh --bg-fill $wp2
+bindsym $mod+Control+2 exec $scripts_dir/usewpconf 2
 # WP 3
-bindsym $mod+Control+3 exec feh --bg-fill $wp3
+bindsym $mod+Control+3 exec $scripts_dir/usewpconf 3
 # WP 4
-bindsym $mod+Control+4 exec feh --bg-fill $wp4
+bindsym $mod+Control+4 exec $scripts_dir/usewpconf 4
 # WP 5
-bindsym $mod+Control+5 exec feh --bg-fill $wp5
+bindsym $mod+Control+5 exec $scripts_dir/usewpconf 5
 # WP 6
-bindsym $mod+Control+6 exec feh --bg-fill $wp6
+bindsym $mod+Control+6 exec $scripts_dir/usewpconf 6
 # WP 7
-bindsym $mod+Control+7 exec feh --bg-fill $wp7
+bindsym $mod+Control+7 exec $scripts_dir/usewpconf 7
 # WP 8
-bindsym $mod+Control+8 exec feh --bg-fill $wp8
+bindsym $mod+Control+8 exec $scripts_dir/usewpconf 8
 # WP 9
-bindsym $mod+Control+9 exec feh --bg-fill $wp9
+bindsym $mod+Control+9 exec $scripts_dir/usewpconf 9
 
 # feh wallpaper shortcut
-bindsym $mod+Shift+w exec feh $wp5
+bindsym $mod+Shift+w exec feh $wpdefault
 
 # PulseAudio Volume Control Keybind
 bindsym $mod+Shift+p exec pavucontrol

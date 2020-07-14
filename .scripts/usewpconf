@@ -1,0 +1,18 @@
+#!/bin/bash
+
+WP_CONF=$1
+WP_CACHE_FILE="$HOME/.scripts/cache/setwp-$WP_CONF"
+WP_HOOK_SCRIPT="$HOME/.scripts/env/usewpconf/hook-$WP_CONF"
+
+if [[ -e "$WP_CACHE_FILE" ]]; then
+  WALLP="$(cat $WP_CACHE_FILE)"
+  feh --bg-fill $WALLP
+fi
+
+# Hooks for things you may want to do after setting a specific wallpaper.
+# Maybe change keyboard lighting?
+
+if [[ -e "$WP_HOOK_SCRIPT" ]]; then
+  $WP_HOOK_SCRIPT
+  echo neat
+fi

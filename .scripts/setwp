@@ -1,9 +1,10 @@
 #!/bin/bash
 
-WALLP="$1"
+WP_CONF=$1
+WALLP="$2"
 
 CACHE_DIR="$HOME/.scripts/cache/"
-CACHE_FILE_NAME="setwp"
+CACHE_FILE_NAME="setwp-$WP_CONF"
 
 mkdir -p "$CACHE_DIR"
 
