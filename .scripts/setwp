@@ -5,9 +5,10 @@ WALLP="$2"
 
 CACHE_DIR="$HOME/.scripts/cache/"
 CACHE_FILE_NAME="setwp-$WP_CONF"
+USEWPCONF="$HOME/.scripts/usewpconf"
 
 mkdir -p "$CACHE_DIR"
 
 echo "$WALLP" > "$CACHE_DIR/$CACHE_FILE_NAME"
 
-feh --bg-fill $WALLP
+$USEWPCONF "$WP_CONF"

@@ -6,5 +6,5 @@ FEHBG="$HOME/.fehbg" # Last feh bg command script.
 if [[ -e "$FEHBG" ]]; then
   $FEHBG
 else
-  feh --bg-fill "$DEFAULTWP"
+  $HOME/.scripts/setwp default "$DEFAULTWP"
 fi

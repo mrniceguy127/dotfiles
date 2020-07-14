@@ -248,7 +248,7 @@ bindsym $mod+Control+8 exec $scripts_dir/usewpconf 8
 bindsym $mod+Control+9 exec $scripts_dir/usewpconf 9
 
 # feh wallpaper shortcut
-bindsym $mod+Shift+w exec feh $wpdefault
+bindsym $mod+Shift+w exec $scripts_dir/show-curr-wp
 
 # PulseAudio Volume Control Keybind
 bindsym $mod+Shift+p exec pavucontrol

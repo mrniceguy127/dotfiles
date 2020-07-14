@@ -2,10 +2,13 @@
 
 WP_CONF=$1
 WP_CACHE_FILE="$HOME/.scripts/cache/setwp-$WP_CONF"
+CURR_WP_FILE="$HOME/.scripts/cache/setwp-curr"
 WP_HOOK_SCRIPT="$HOME/.scripts/env/usewpconf/hook-$WP_CONF"
 
 if [[ -e "$WP_CACHE_FILE" ]]; then
   WALLP="$(cat $WP_CACHE_FILE)"
+  rm "$CURR_WP_FILE"
+  ln -s "$WP_CACHE_FILE" "$CURR_WP_FILE"
   feh --bg-fill $WALLP
 fi
 
