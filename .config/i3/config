@@ -220,7 +220,6 @@ set $wplockdual $HOME/Wallpapers/orig-wp0003.1s.3n.double.png
 #     For single screen
 set $wplock $HOME/Wallpapers/orig-wp0003.1s.3n.png
 #   Desktop
-set $wp0 ~/Wallpapers/jibril0017.png
 set $wp1 ~/Wallpapers/nue0002.rm-transp-corners.scale.1920x1080.png
 set $wp2 ~/Wallpapers/ngnl-ns0017.cropped.1920x1080.png
 set $wp3 ~/Wallpapers/nue0000.2s.3n.scale.1920x1080.png
@@ -236,7 +235,7 @@ exec --no-startup-id $scripts_dir/betterlockscreen-cache "$wplock" "$wplockdual"
 
 # Neat wallpaper hot key
 # WP 0
-bindsym $mod+Control+0 exec feh --bg-fill $wp0
+bindsym $mod+Control+0 exec $scripts_dir/use-non-preset-wp
 # WP 1
 bindsym $mod+Control+1 exec feh --bg-fill $wp1
 # WP 2

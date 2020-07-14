@@ -1,0 +1,12 @@
+#!/bin/bash
+
+WALLP="$1"
+
+CACHE_DIR="$HOME/.scripts/cache/"
+CACHE_FILE_NAME="setwp"
+
+mkdir -p "$CACHE_DIR"
+
+echo "$WALLP" > "$CACHE_DIR/$CACHE_FILE_NAME"
+
+feh --bg-fill $WALLP

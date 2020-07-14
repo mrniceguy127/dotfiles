@@ -1,0 +1,5 @@
+#!/bin/bash
+
+WALLP="$(cat ~/.scripts/env/cache/setwp)"
+
+feh --bg-fill $WALLP
