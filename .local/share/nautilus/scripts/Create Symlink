@@ -1,0 +1,8 @@
+#!/bin/bash
+
+IFS=$'\n'
+FILES="$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" 
+
+for file in $FILES; do
+  ln -s "$file" "$file-LINK"
+done

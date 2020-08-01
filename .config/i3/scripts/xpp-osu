@@ -5,8 +5,6 @@ if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
 fi
 
 if [[ -n "$TERMATT" ]]; then
-  $TERMATT osu-wine-rpc &
-
   # i3 Primary 
   #   Pens
   #     With xppen official beta drivers
