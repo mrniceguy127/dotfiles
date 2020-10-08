@@ -27,26 +27,29 @@ wm-urgent = #77be3030
 
 bg-tray = #771a1a1a
 
+[const]
+bar-height = 26
+
 [bar/primbar]
 monitor = ${env:MONITOR:}
 monitor-strict = true
 fixed-center = true
 
-font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=10;0"
+font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=8;0"
 font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
-font-2 = "Siji:style=Regular:size=12;0"
-font-3 = "FreeMono:style=Regular:size=12;0"
-font-4 = "FontAwesome:style=Regular"
+font-2 = "Siji:style=Regular:size=10;0"
+font-3 = "FreeMono:style=Regular:size=10;0"
+font-4 = "FontAwesome:style=Regular:size=10;0"
 
 modules-left = i3
 modules-right = github wired-network cpu memory alsa date
 
-height = 36
+height = ${const.bar-height}
 
 bottom=true
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
 padding-right = 3
 
@@ -69,21 +72,21 @@ monitor = ${env:MONITOR:}
 monitor-strict = true
 fixed-center = true
 
-font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=10;0"
+font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=8;0"
 font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
-font-2 = "Siji:style=Regular:size=12;0"
-font-3 = "FreeMono:style=Regular:size=12;0"
-font-4 = "FontAwesome:style=Regular"
+font-2 = "Siji:style=Regular:size=10;0"
+font-3 = "FreeMono:style=Regular:size=10;0"
+font-4 = "FontAwesome:style=Regular:size=10;0"
 
 modules-left = i3
 modules-right = github wired-network cpu memory alsa date
 
-height = 36
+height = ${const.bar-height}
 
 bottom=true
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
 padding-right = 3
 

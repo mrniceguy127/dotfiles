@@ -15,8 +15,7 @@ if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
   source "$HOME/.scripts/env/env.zshrc"
 fi
 
-alias aurupdate="yay -Syu"
-alias update="sudo pacman -Syyu"
+alias update="yay -Syyu"
 alias termart="$HOME/.toys/termart"
 alias ta=termart
 alias nue='ta nue'
@@ -27,6 +26,15 @@ alias install="sudo pacman -S"
 alias ..="cd .."
 alias grep="grep --color=auto"
 alias ls="ls --color"
+alias may="MAKEFLAGS=\"-j$(nproc)\" yay"
+alias f="ranger ."
+alias v="vim"
+alias c="cat"
+alias pa="pulseaudio"
+alias ga="git add ."
+alias gp="git push"
+alias gP="git pull"
+alias p="python3"
 
 # Quick command navigation
 bindkey "^[Od" backward-word
@@ -64,7 +72,7 @@ fi
 chpwd_dirstack() {
 	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
 }
-add-zsh-hook -Uz chpwd chpwd_dirstack
+#add-zsh-hook -Uz chpwd chpwd_dirstack
 
 DIRSTACKSIZE='20'
 

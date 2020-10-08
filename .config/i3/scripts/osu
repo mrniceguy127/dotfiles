@@ -5,10 +5,31 @@ if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
 fi
 
 if [[ -n "$TERMATT" ]]; then
-  OSU_CKB_PIPE="/tmp/ckbpipe000"
-  echo "rgb ffffffff" > "$OSU_CKB_PIPE"
+  I3_SCRIPTS="$HOME/.config/i3/scripts"
+
+  ACTIVE_AREA_SCRIPT="$I3_SCRIPTS/tab-aa"
+  PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
+  while [ $PEN_FOUND -gt 0 ]; do
+    sleep 1
+    PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
+  done
+
+  xsetwacom --set "Wacom Intuos S Pen stylus" Button 2 key "shift"
+  xsetwacom --set "Wacom Intuos S Pen stylus" Button 3 key "shift"
+
+
+  KILL_PICOM_SCRIPT="$I3_SCRIPTS/picom-kill"
+  $KILL_PICOM_SCRIPT
+
+  #ckb-next --profile 'Doremy' --mode 'Doremy (osu!)'
+
   $TERMATT osu-wine-rpc &
+
   osu-wine
-  echo "rgb 00000000" > "$OSU_CKB_PIPE"
+
+  START_PICOM_SCRIPT="$I3_SCRIPTS/picom"
+  $START_PICOM_SCRIPT
+
+  #ckb-next --profile 'Doremy' --mode 'Doremy'
 fi
 

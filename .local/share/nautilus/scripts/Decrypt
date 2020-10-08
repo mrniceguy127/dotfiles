@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gpg --batch --yes --no-symkey-cache "$1"
+

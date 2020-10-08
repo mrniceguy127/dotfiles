@@ -209,8 +209,8 @@ bindsym $mod+d exec --no-startup-id "rofi -modi window,run,ssh,drun -show-icons 
 # For i3-gaps
 for_window [class=".*"] border pixel 0
 # gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
-gaps bottom 36 # For bottom bar placement
-gaps inner 20
+gaps bottom 24 # For bottom bar placement
+gaps inner 8
 smart_borders on
 
 # Wallpaper
@@ -321,9 +321,9 @@ bindsym $mod+Control+Shift+n exec $scripts_dir/touhou-ln
 
 # Noise supression
 #   Enable
-bindsym $mod+Control+Shift+h exec $scripts_dir/noise-supress
+#bindsym $mod+Control+Shift+h exec $scripts_dir/noise-supress
 #   Disable
-bindsym $mod+Shift+h exec $scripts_dir/unnoise-supress
+#bindsym $mod+Shift+h exec $scripts_dir/unnoise-supress
 
 # Scratch pad
 # Make the currently focused window a scratchpad
@@ -342,8 +342,8 @@ bindsym $mod+Mod1+Right focus output right
 # Focus monitor to left
 bindsym $mod+Mod1+Left focus output left
 
-# XPPen Pen config command shortcut
-bindsym $mod+grave exec $scripts_dir/xpp-osu
+# Tablet active area shortcut
+bindsym $mod+grave exec $scripts_dir/tab-aa
 
 #Lock screen
 # betterlockscreen https://github.com/pavanjadhaw/betterlockscreen
