@@ -21,6 +21,7 @@ alias ta=termart
 alias nue='ta nue'
 alias kanna='ta kanna'
 alias open="xdg-open"
+alias o="open"
 #alias plz='sudo !!' # '!!: Command not found' ???
 alias install="sudo pacman -S"
 alias ..="cd .."
@@ -35,6 +36,7 @@ alias ga="git add ."
 alias gp="git push"
 alias gP="git pull"
 alias p="python3"
+alias pki="pkill --signal=SIGKILL"
 
 # Quick command navigation
 bindkey "^[Od" backward-word

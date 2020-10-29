@@ -18,9 +18,9 @@
 
 
 [colors]
-bg-main = #771a1a1a
-bg-dark =  #77090909
-bg-light = #772d2d2d
+bg-main = #bb1a1a1a
+bg-dark =  #bb090909
+bg-light = #bb2d2d2d
 white = #ffffffff
 
 wm-urgent = #77be3030
@@ -42,7 +42,7 @@ font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
 
 modules-left = i3
-modules-right = github wired-network cpu memory alsa date
+modules-right = github cpu memory wired-network  alsa date time
 
 height = ${const.bar-height}
 
@@ -53,7 +53,7 @@ module-margin-right = 2
 
 padding-right = 3
 
-separator = //
+separator = 
 
 tray-position = right
 tray-maxsize = 16
@@ -79,7 +79,7 @@ font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
 
 modules-left = i3
-modules-right = github wired-network cpu memory alsa date
+modules-right = github cpu memory wired-network  alsa date time
 
 height = ${const.bar-height}
 
@@ -90,7 +90,7 @@ module-margin-right = 2
 
 padding-right = 3
 
-separator = // 
+separator = 
 
 background = ${colors.bg-main}
 
@@ -104,13 +104,22 @@ wm-restack = i3
 [module/date]
 type = internal/date
 
-date = %A, %d %B %Y
-time = %H:%M:%S
+format =  <label>
 
-date-alt = %Y-%m-%d
-time-alt = %H:%M:%S
+date = %m/%d/%Y (%A)
 
-label = %date% - %time%
+date-alt = %B %d, %Y (%A)
+
+label = %date%
+
+[module/time]
+type = internal/date
+
+format =  <label>
+
+time = %l:%M:%S %p
+
+label = %time%
 
 [module/alsa]
 type = internal/pulseaudio
@@ -145,15 +154,16 @@ label-visible-padding = 2
 label-unfocused = %name%
 label-unfocused-foreground = ${colors.white}
 label-unfocused-background = ${colors.bg-light}
-label-unfocused-padding = 2.5
+label-unfocused-padding = 2
 
 strip-wsnumbers = true
+
 
 [module/cpu]
 type = internal/cpu
 format = <label>
 interval = 1
-label = CPU %percentage:2:3%%
+label =  %percentage:3:3%% CPU
 
 ;ramp-coreload-spacing = 1
 ;ramp-coreload-0 = ▁
@@ -170,7 +180,7 @@ type = internal/memory
 
 interval = 3
 
-label = RAM %gb_used:6:6%
+label =  %gb_used:6:6% RAM
 
 [module/wired-network]
 type = internal/network
@@ -179,7 +189,7 @@ interface = enp0s31f6
 format-connected = <label-connected>
 interval = 3.0
 
-label-connected = %downspeed:7:9%
+label-connected =  %downspeed:9:9%
 
 [module/github]
 type = internal/github
@@ -193,5 +203,5 @@ empty-notifications = false
 
 interval = 30
 
-label = GitHub Notifs: %notifications%
+label =  %notifications%
 

@@ -28,6 +28,14 @@ if [[ -n "$TERMATT" ]]; then
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4938x2740+411+0; echo $?)
   #   Wacom CTL-480 - Experimental Aspect Ratio
   XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5138x2740+1920+0; echo $?)
+  
+  ###MAIN###
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
+  
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6047x3225+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6047x3064+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6228x3322+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 1920x1080+1920+0; echo $?)
   if [ $XINPUT_EXIT_CODE -gt 0 ]; then
     exit 1
   fi
