@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SS_SAVE_LOC="$1"
+SS_FILE_NAME="$(date +%s).png"
+SS_FILE_PATH="$SS_SAVE_LOC/$SS_FILE_NAME"
+
+mkdir -p "$SS_SAVE_LOC"
+maim -s --format=png "$SS_FILE_PATH"
+echo "$SS_FILE_PATH"

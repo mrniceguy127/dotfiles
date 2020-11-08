@@ -183,6 +183,8 @@ set $ws10 "10 clutter"
 # Misc 
 
 set $lockscreenmsg "Come back two hours earlier."
+# Where to save screenshots (if saving them)
+set $ss_save_loc ~/screenshots
 
 # Environment
 
@@ -303,6 +305,12 @@ bindsym $mod+Control+Right move workspace to output right
 
 # Screenshot selection
 bindsym $mod+Shift+s exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+# Screenshot save and copy
+bindsym $mod+Control+s exec $scripts_dir/save-ss $ss_save_loc
+# Screenshot save and copy
+bindsym $mod+Control+Shift+s exec $scripts_dir/save-and-disp-ss $ss_save_loc
+# Screenshot save and copy
+bindsym $mod+Control+Mod1+s exec $scripts_dir/save-disp-and-clip-ss $ss_save_loc
 
 # Ansii art
 #bindsym $mod+m exec printf "█" | xclip -selection clipboard && xclip -o█

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SCRIPTS_DIR="$HOME/.config/i3/scripts"
+SAVE_SS_SCRIPT="$SCRIPTS_DIR/save-ss"
+SCRIPT_ARGS="$@"
+FILE_NAME="$($SAVE_SS_SCRIPT $SCRIPT_ARGS)"
+
+cat "$FILE_NAME" | xclip -selection c -t image/png -i
+feh "$FILE_NAME"
+
+echo "$FILE_NAME"
