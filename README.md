@@ -23,3 +23,5 @@ Sources list may be updated as artwork is either changed, removed, or added in t
 ![Preview 1](screenshots/0.png)
 ![Preview 2](screenshots/1.png)
 ![Preview 3](screenshots/2.png)
+## Lock Screen
+![Lock Screen Preview](screenshots/lock.png)
