@@ -26,7 +26,7 @@ alias o="open"
 alias install="sudo pacman -S"
 alias ..="cd .."
 alias grep="grep --color=auto"
-alias ls="ls --color"
+alias ls="ls -shN --color=auto --group-directories-first"
 alias may="MAKEFLAGS=\"-j$(nproc)\" yay"
 alias f="ranger ."
 alias v="vim"
@@ -37,6 +37,11 @@ alias gp="git push"
 alias gP="git pull"
 alias p="python3"
 alias pki="pkill --signal=SIGKILL"
+alias ram="ps axch -o cmd:15,%mem --sort=-%mem | head"
+alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias mhz='watch -n 1 "cat /proc/cpuinfo | grep MHz"'
 
 # Quick command navigation
 bindkey "^[Od" backward-word
