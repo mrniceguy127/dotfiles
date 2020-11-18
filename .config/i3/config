@@ -193,7 +193,7 @@ set $terminal urxvt
 set $shell zsh
 
 # Desktop Themes
-set $icon_theme Papirus
+set $icon_theme Tela-black-dark
 
 
 
