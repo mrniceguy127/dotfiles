@@ -97,8 +97,15 @@ promptinit
 # My Settings
 prompt fade blue
 
-PROMPT_FIRST='%F{blue}%K{black}█▓▒░%f%k%F{15}%K{blue}%n@%m%f%F{blue}%k%K{black}▓▒░%f%k'
+PROMPT_FIRST='%F{blue}%K{black}░▒▓█%f%k%F{15}%K{blue}%n@%m%f%k%F{blue}%k%K{8}▓▒░%f%k'
 #PROMPT_GIT="[$(git branch 2> /dev/null | cut -d ' ' -f 2)]"
-PROMPT_DATETIME="%K $(date +"%D %T")%f%k"
-PROMPT_SECOND='%F{blue}%B%~ #%b%f '
-PROMPT="$(printf '$PROMPT_FIRST$PROMPT_DATETIME\n$PROMPT_SECOND')"
+#PROMPT_DATETIME="%K{8} $(date +"%D %T") %f%k"
+PROMPT_DATETIME="%K{8} %~ %f%k"
+PROMPT_SECOND='%F{white}%B#%b%f '
+PERCENT_K='%K'
+PERCENT_k='%k'
+PERCENT_F='%F'
+PERCENT_f='%f'
+PERCENT_B='%B'
+PERCENT_b='%b'
+PROMPT="$(printf '$PROMPT_FIRST$PROMPT_DATETIME$PERCENT_F{8}\ue0b0$PERCENT_f\n$PROMPT_SECOND')"

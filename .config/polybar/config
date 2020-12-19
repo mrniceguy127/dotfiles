@@ -18,14 +18,14 @@
 
 
 [colors]
-bg-main = #bb1a1a1a
-bg-dark =  #bb090909
-bg-light = #bb2d2d2d
+bg-main = #ff171a1f
+bg-dark =  #ff0b0f15
+bg-light = #ff2e3136
 white = #ffffffff
 
 wm-urgent = #77be3030
 
-bg-tray = #771a1a1a
+bg-tray = #ff171a1f
 
 [const]
 bar-height = 26
@@ -136,22 +136,23 @@ type = internal/i3
 pin-workspaces = true
 index-sort = true
 
-label-focused = %name%
+label-focused = %name:1:1%
+label-focused-alignment = left
 label-focused-foreground = ${colors.white}
 label-focused-background = ${colors.bg-dark}
 label-focused-padding = 2
 
-label-urgent = %name%
+label-urgent = %name:1:1%
 label-urgent-foreground = ${colors.white}
 label-urgent-background = ${colors.wm-urgent}
 label-urgent-padding = 2
 
-label-visible = %name%
+label-visible = %name:1:1%
 label-visible-foreground = ${colors.white}
 label-visible-background = ${colors.bg-light}
 label-visible-padding = 2
 
-label-unfocused = %name%
+label-unfocused = %name:1:1%
 label-unfocused-foreground = ${colors.white}
 label-unfocused-background = ${colors.bg-light}
 label-unfocused-padding = 2

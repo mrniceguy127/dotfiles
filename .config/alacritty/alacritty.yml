@@ -1,0 +1,40 @@
+colors:
+  primary:
+    #background: '#1a1a1a'
+    background: '#171a1f'
+    foreground: '#cbe1e7'
+
+  cursor:
+    cursor: '#ffffff'
+
+  normal:
+    black:   '#141228'
+    red:     '#ff5458'
+    green:   '#62d196'
+    yellow:  '#ffb378'
+    blue:    '#223b75'
+    magenta: '#906cff'
+    cyan:    '#63f2f1'
+    white:   '#a6b3cc'
+
+  bright:
+    black:   '#565575'
+    red:     '#ff8080'
+    green:   '#95ffa4'
+    yellow:  '#ffe9aa'
+    blue:    '#bacdff'
+    magenta: '#c991e1'
+    cyan:    '#aaffe4'
+    white:   '#cbe3e7'
+
+font:
+  normal:
+    family: Hack Nerd Font
+  size: 12
+  style: Regular
+  offset:
+    x: -1
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0

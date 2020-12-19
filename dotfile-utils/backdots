@@ -15,6 +15,7 @@ fi
 echo  "Backing up dot files to '$BAK_DEST'..."
 
 mkdir -p "$BAK_DEST"
+mkdir -p "$BAK_DEST/.config/alacritty/"
 mkdir -p "$BAK_DEST/.config/i3/"
 mkdir -p "$BAK_DEST/.config/polybar/"
 mkdir -p "$BAK_DEST/.config/rofi/"
@@ -27,6 +28,7 @@ mkdir -p "$BAK_DEST/.toys/"
 mkdir -p "$BAK_DEST/Wallpapers/"
 
 cp -r "$ORIGIN/.config/i3/"* "$BAK_DEST/.config/i3/"
+cp -r "$ORIGIN/.config/alacritty/"* "$BAK_DEST/.config/alacritty/"
 cp -r "$ORIGIN/.config/polybar/"* "$BAK_DEST/.config/polybar/"
 cp -r "$ORIGIN/.config/rofi/"* "$BAK_DEST/.config/rofi/"
 cp -r "$ORIGIN/.config/ranger/"* "$BAK_DEST/.config/ranger/"

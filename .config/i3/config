@@ -109,7 +109,7 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+0 workspace number $ws0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -121,7 +121,7 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+0 move container to workspace number $ws0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -169,16 +169,16 @@ bindsym $mod+r mode "resize"
 
 # Workspaces
 
-set $ws1 "1 main"
-set $ws2 "2 web"
-set $ws3 "3 chat"
-set $ws4 "4 game"
-set $ws5 "5 misc"
-set $ws6 "6 launchers"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10 clutter"
+set $ws0 "0"
 
 # Misc 
 
@@ -189,7 +189,7 @@ set $ss_save_loc ~/screenshots
 # Environment
 
 set $scripts_dir ~/.config/i3/scripts
-set $terminal urxvt
+set $terminal alacritty
 set $shell zsh
 
 # Desktop Themes
@@ -205,7 +205,7 @@ set $icon_theme Tela-black-dark
 
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec $terminal
 
 # Start rofi (program launcher)
 bindsym $mod+d exec --no-startup-id "rofi -modi window#run#ssh#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
@@ -262,7 +262,7 @@ bindsym $mod+Shift+p exec pavucontrol
 #   Nautilus keybind (GUI)
 bindsym $mod+Shift+f exec nautilus
 #   Ranger keybind (Terminal-based)
-bindsym $mod+Shift+Return exec urxvt -e ranger ~
+bindsym $mod+Shift+Return exec $terminal -e ranger ~
 
 # Browser(s)
 #   qutebrowser
@@ -354,7 +354,10 @@ bindsym $mod+Mod1+Right focus output right
 bindsym $mod+Mod1+Left focus output left
 
 # Tablet active area shortcut
+#   osu!
 bindsym $mod+grave exec $scripts_dir/tab-aa
+#   Main monitor full
+bindsym $mod+Shift+grave exec $scripts_dir/tab-aa-main-mon
 
 #Lock screen
 # betterlockscreen https://github.com/pavanjadhaw/betterlockscreen

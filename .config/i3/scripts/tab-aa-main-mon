@@ -27,7 +27,7 @@ if [[ -n "$TERMATT" ]]; then
   #   Wacom CTL-480 - HORIZ Centered
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4938x2740+411+0; echo $?)
   #   Wacom CTL-480 - Experimental Aspect Ratio
-  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5138x2740+1920+0; echo $?)
+  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 1920x1080+1920+0; echo $?)
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6138x2740+1920+0; echo $?)
   
   ###MAIN###
