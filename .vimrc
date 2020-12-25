@@ -15,7 +15,7 @@ silent! so ~/.scripts/env/env.vimplugs
 
 " Colors
 set t_Co=256
-silent! colorscheme odyssey " Download here: https://github.com/ludokng/vim-odyssey
+" silent! colorscheme odyssey " Download here: https://github.com/ludokng/vim-odyssey
 
 syntax on
  

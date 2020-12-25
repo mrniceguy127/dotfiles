@@ -43,6 +43,9 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias mhz='watch -n 1 "cat /proc/cpuinfo | grep MHz"'
 
+# pywal
+(cat ~/.cache/wal/sequences &)
+
 # Quick command navigation
 bindkey "^[Od" backward-word
 bindkey "^[Oc" forward-word

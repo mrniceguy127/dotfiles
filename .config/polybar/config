@@ -18,14 +18,19 @@
 
 
 [colors]
-bg-main = #ff171a1f
-bg-dark =  #ff0b0f15
-bg-light = #ff2e3136
-white = #ffffffff
+; bg-main = #ff171a1f
+; bg-dark =  #ff0b0f15
+; bg-light = #ff2e3136
+; white = #ffffffff
+; wm-urgent = #77be3030
+; bg-tray = #ff171a1f
 
-wm-urgent = #77be3030
-
-bg-tray = #ff171a1f
+bg-main = ${xrdb:background:#222}
+bg-dark =  ${xrdb:color0:#222}
+bg-light = ${xrdb:color0:#222}
+white = ${xrdb:color7:#222}
+wm-urgent = ${xrdb:color1:#222}
+bg-tray = ${xrdb:background:#222}
 
 [const]
 bar-height = 26
@@ -61,6 +66,9 @@ tray-background = ${colors.bg-tray}
 
 background = ${colors.bg-main}
 
+; Underline / overline
+line-size = 1
+
 ; i3
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -93,6 +101,9 @@ padding-right = 3
 separator = 
 
 background = ${colors.bg-main}
+
+; Underline / overline
+line-size = 1
 
 ; i3
 scroll-up = i3wm-wsnext
@@ -147,7 +158,8 @@ label-urgent-foreground = ${colors.white}
 label-urgent-background = ${colors.wm-urgent}
 label-urgent-padding = 2
 
-label-visible = %name:1:1%
+label-visible = "%name:1:1%"
+label-focused-underline = ${colors.white}
 label-visible-foreground = ${colors.white}
 label-visible-background = ${colors.bg-light}
 label-visible-padding = 2
