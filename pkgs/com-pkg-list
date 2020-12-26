@@ -4,7 +4,7 @@ pavucontrol
 ranger
 i3-gaps
 nautilus
-vim
+neovim
 xclip
 zsh
 zsh-syntax-highlighting
