@@ -371,3 +371,5 @@ bindsym $mod+Control+Shift+e exec i3-msg 'exit'
 bindsym $mod+Control+Shift+slash exec poweroff
 # Reboot shortcut
 bindsym $mod+Control+Shift+period exec reboot
+# Hibernate shortcut
+bindsym $mod+Control+Shift+comma exec systemctl hibernate
