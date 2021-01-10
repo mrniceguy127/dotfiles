@@ -29,7 +29,7 @@ plugins=(
 	#gpg-agent ssh-agent keychain
 	npm nvm
 	tmux
-
+        zsh-autosuggestions
 )
 source "$ZSH/oh-my-zsh.sh"
 
