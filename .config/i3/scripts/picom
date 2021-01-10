@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# use 'compton' for tryone-compton. Use 'picom' for vanilla picom (renamed from Compton).
-COMPOSITOR="compton"
+# use 'compton' for tryone-compton. Use 'picom' for vanilla picom (renamed from compton).
+COMPOSITOR="picom"
 
 $COMPOSITOR #--experimental-backends
