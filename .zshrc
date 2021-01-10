@@ -64,9 +64,11 @@ alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias mhz='watch -n 1 "cat /proc/cpuinfo | grep MHz"'
+alias vim='nvim'
+alias vi='vim'
 
 # pywal
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 
 # Quick command navigation
 bindkey "^[Od" backward-word

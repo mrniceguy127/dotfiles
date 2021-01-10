@@ -19,6 +19,15 @@ echo "Updating dotfiles..."
 $SCRIPTS_DIR/restdots
 echo "Installing packages..."
 sudo pacman -S $(cat "$SCRIPTS_DIR/../pkgs/com-pkg-list")
+
+#   Install yay
+echo "Installing yay..."
+sudo pacman -S base-devel
+mkdir -p ~/.cache/dotfiles
+git clone https://aur.archlinux.org/yay.git ~/.cache/dotfiles/yay
+cd ~/.cache/dotfiles/yay
+makepkg -sic
+cd && rm -r ~/.cache/dotfiles
 $AUR_INSTALL_CMD $(cat "$SCRIPTS_DIR/../pkgs/aur-pkg-list")
 
 #   oh-my-zsh
