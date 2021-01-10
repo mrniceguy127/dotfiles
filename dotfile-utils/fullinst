@@ -23,11 +23,12 @@ sudo pacman -S $(cat "$SCRIPTS_DIR/../pkgs/com-pkg-list")
 #   Install yay
 echo "Installing yay..."
 sudo pacman -S base-devel
-mkdir -p ~/.cache/dotfiles
-git clone https://aur.archlinux.org/yay.git ~/.cache/dotfiles/yay
-cd ~/.cache/dotfiles/yay
+mkdir -p "$HOME/.cache/dotfiles"
+git clone https://aur.archlinux.org/yay.git "$HOME/.cache/dotfiles/yay"
+cd "$HOME/.cache/dotfiles/yay"
 makepkg -sic
-cd && rm -r ~/.cache/dotfiles
+chmod -R 755 "$HOME/.cache/dotfiles"
+cd && rm -r "$HOME/.cache/dotfiles"
 $AUR_INSTALL_CMD $(cat "$SCRIPTS_DIR/../pkgs/aur-pkg-list")
 
 #   oh-my-zsh
@@ -37,6 +38,8 @@ if [[ ! -e "$OHMYZSH_DIR" ]] ; then
 else
   echo "oh-my-zsh directory already exists at $OHMYZSH_DIR. Aborting."
 fi
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-autosuggestions
+chmod -R 755 "$OHMYZSH_DIR"
 
 #   Finish setup
 echo "Finalizing setup..."
