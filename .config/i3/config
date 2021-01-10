@@ -225,7 +225,7 @@ set $wplockdual $HOME/Wallpapers/orig-wp0003.1s.3n.double.png
 #     For single screen
 set $wplock $HOME/Wallpapers/orig-wp0003.1s.3n.png
 #   Desktop
-set $wpdefault cool-wp0000.2s.3n.scaled.2122x1080.cropped.1920x1080.png
+set $wpdefault ~/Wallpapers/cool-wp0000.2s.3n.scaled.2122x1080.cropped.1920x1080.png
 
 # pywal
 exec --no-startup-id wal -R &

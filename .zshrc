@@ -68,7 +68,9 @@ alias vim='nvim'
 alias vi='vim'
 
 # pywal
-#(cat ~/.cache/wal/sequences &)
+mkdir -p "$HOME/.cache/wal"
+touch "$HOME/.cache/wal/sequences"
+(cat ~/.cache/wal/sequences &)
 
 # Quick command navigation
 bindkey "^[Od" backward-word
