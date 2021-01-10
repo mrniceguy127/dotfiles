@@ -11,15 +11,37 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+
+
+# oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
+plugins=(
+	#git
+	archlinux
+	jump
+	perms
+	sudo
+	history-substring-search
+	#per-directory-history
+        dotenv
+	dotnet
+	github
+	#gpg-agent ssh-agent keychain
+	npm nvm
+	tmux
+
+)
+source "$ZSH/oh-my-zsh.sh"
+
 if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
   source "$HOME/.scripts/env/env.zshrc"
 fi
 
 alias update="yay -Syyu"
 alias termart="$HOME/.toys/termart"
-alias ta=termart
-alias nue='ta nue'
-alias kanna='ta kanna'
+#alias ta=termart
+alias nue='termart nue'
+alias kanna='termart kanna'
 alias open="xdg-open"
 alias o="open"
 #alias plz='sudo !!' # '!!: Command not found' ???
