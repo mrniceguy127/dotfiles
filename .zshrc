@@ -33,10 +33,6 @@ plugins=(
 )
 source "$ZSH/oh-my-zsh.sh"
 
-if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
-  source "$HOME/.scripts/env/env.zshrc"
-fi
-
 alias update="yay -Syyu"
 alias termart="$HOME/.toys/termart"
 #alias ta=termart
@@ -51,7 +47,6 @@ alias grep="grep --color=auto"
 alias ls="ls -shN --color=auto --group-directories-first"
 alias may="MAKEFLAGS=\"-j$(nproc)\" yay"
 alias f="ranger ."
-alias v="vim"
 alias c="cat"
 alias pa="pulseaudio"
 alias ga="git add ."
@@ -64,8 +59,12 @@ alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias mhz='watch -n 1 "cat /proc/cpuinfo | grep MHz"'
-alias vim='nvim'
 alias vi='vim'
+alias v='vim'
+
+if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
+  source "$HOME/.scripts/env/env.zshrc"
+fi
 
 # pywal
 mkdir -p "$HOME/.cache/wal"

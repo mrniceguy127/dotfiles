@@ -51,6 +51,7 @@ else
   echo "oh-my-zsh directory already exists at $OHMYZSH_DIR. Aborting."
 fi
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-syntax-highlighting
 chmod -R 755 "$OHMYZSH_DIR"
 
 #   Finish setup
