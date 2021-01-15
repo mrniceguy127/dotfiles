@@ -9,27 +9,39 @@
 SCRIPTS_DIR="$HOME/.dotfiles/dotfile-utils"
 AUR_INSTALL_CMD='yay -S'
 OHMYZSH_DIR="$HOME/.oh-my-zsh" # oh-my-zsh install dir
+if [[ ! -n "$INSTALL_YAY" ]] ; then
+  INSTALL_YAY=1
+fi
 
-# Pre-install
-echo "Pacman: Updating mirrors..."
-sudo pacman -Syy
+if [[ ! -n "$INSTALL_PKGS" ]] ; then
+  INSTALL_PKGS=1
+fi
 
-# Install
+if [[ "$INSTALL_PKGS" == "1" ]] ; then
+  # Pre-install pkgs
+  echo "Pacman: Updating mirrors..."
+  sudo pacman -Syy
+
+  if [[ "$INSTALL_YAY" == "1" ]] ; then 
+    #   Install yay
+    echo "Installing yay..."
+    sudo pacman -S base-devel
+    mkdir -p "$HOME/.cache/dotfiles"
+    git clone https://aur.archlinux.org/yay.git "$HOME/.cache/dotfiles/yay"
+    cd "$HOME/.cache/dotfiles/yay"
+    makepkg -sic
+    chmod -R 755 "$HOME/.cache/dotfiles"
+    cd && rm -r "$HOME/.cache/dotfiles"
+  fi
+
+  # Install pkgs
+  echo "Installing packages..."
+  $AUR_INSTALL_CMD $(cat "$SCRIPTS_DIR/../pkgs/aur-pkg-list")
+  sudo pacman -S $(cat "$SCRIPTS_DIR/../pkgs/com-pkg-list")
+fi
+
 echo "Updating dotfiles..."
 $SCRIPTS_DIR/restdots
-echo "Installing packages..."
-sudo pacman -S $(cat "$SCRIPTS_DIR/../pkgs/com-pkg-list")
-
-#   Install yay
-echo "Installing yay..."
-sudo pacman -S base-devel
-mkdir -p "$HOME/.cache/dotfiles"
-git clone https://aur.archlinux.org/yay.git "$HOME/.cache/dotfiles/yay"
-cd "$HOME/.cache/dotfiles/yay"
-makepkg -sic
-chmod -R 755 "$HOME/.cache/dotfiles"
-cd && rm -r "$HOME/.cache/dotfiles"
-$AUR_INSTALL_CMD $(cat "$SCRIPTS_DIR/../pkgs/aur-pkg-list")
 
 #   oh-my-zsh
 echo "Installing oh-my-zsh..."

@@ -208,7 +208,8 @@ set $icon_theme Tela-black-dark
 bindsym $mod+Return exec $terminal
 
 # Start rofi (program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -modi window#run#ssh#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
+#bindsym $mod+d exec --no-startup-id "rofi -modi window#run#ssh#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -modi run#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
 
 
 # For i3-gaps
