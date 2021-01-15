@@ -75,9 +75,6 @@ touch "$HOME/.cache/wal/sequences"
 bindkey "^[Od" backward-word
 bindkey "^[Oc" forward-word
 
-# zsh syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Dirstack - https://wiki.archlinux.org/index.php/Zsh#Sample_.zshrc_files
 autoload -Uz add-zsh-hook
 
