@@ -3,41 +3,71 @@
 # Assumes:
 #- repo is stored at ~/.dotfiles
 #- Using an Arch-based distro
-#- yay is installed
 
 # Useful vars
-SCRIPTS_DIR="$HOME/.dotfiles/dotfile-utils"
-AUR_INSTALL_CMD='yay -S'
-OHMYZSH_DIR="$HOME/.oh-my-zsh" # oh-my-zsh install dir
-if [[ ! -n "$INSTALL_YAY" ]] ; then
-  INSTALL_YAY=1
+if [[ ! -n "$DOTFILES_DIR" ]] ; then
+  DOTFILES_DIR="$HOME/.dotfiles"
 fi
+
+SCRIPTS_DIR="$DOTFILES_DIR/dotfile-utils"
+PKG_LISTINGS_DIR="$DOTFILES_DIR/pkgs"
+COMMUNITY_PKGS_LISTING_FILE="$PKG_LISTINGS_DIR/com-pkg-list"
+AUR_PKGS_LISTING_FILE="$PKG_LISTINGS_DIR/aur-pkg-list"
+OHMYZSH_DIR="$HOME/.oh-my-zsh" # oh-my-zsh install dir
 
 if [[ ! -n "$INSTALL_PKGS" ]] ; then
   INSTALL_PKGS=1
 fi
 
-if [[ "$INSTALL_PKGS" == "1" ]] ; then
-  # Pre-install pkgs
-  echo "Pacman: Updating mirrors..."
-  sudo pacman -Syy
+if [[ ! -n "$INSTALL_AUR_PKGS" ]] ; then
+  INSTALL_AUR_PKGS=1
+fi
 
-  if [[ "$INSTALL_YAY" == "1" ]] ; then 
-    #   Install yay
-    echo "Installing yay..."
-    sudo pacman -S base-devel
-    mkdir -p "$HOME/.cache/dotfiles"
-    git clone https://aur.archlinux.org/yay.git "$HOME/.cache/dotfiles/yay"
-    cd "$HOME/.cache/dotfiles/yay"
+if [[ ! -n "$INSTALL_COMMUNITY_PKGS" ]] ; then
+  INSTALL_COMMUNITY_PKGS=1
+fi
+
+# Useful functions
+#   Download from AUR
+download_aur_pkg() {
+    AUR_PKG="$1"
+    CACHE_DIR="$HOME/.cache/dotfiles"
+    
+    # Install
+    mkdir -p "$CACHE_DIR"
+    git clone "https://aur.archlinux.org/$AUR_PKG.git" "$CACHE_DIR/$AUR_PKG"
+    cd "$CACHE_DIR/$AUR_PKG"
     makepkg -sic
-    chmod -R 755 "$HOME/.cache/dotfiles"
-    cd && rm -r "$HOME/.cache/dotfiles"
+
+    # Clean up
+    chmod -R 755 "$HOME/.cache/dotfiles/$AUR_PKG"
+    cd && rm -r "$HOME/.cache/dotfiles/$AUR_PKG"
+}
+
+download_all_aur_pkgs() {
+  sudo pacman -S base-devel
+  for aur_pkg in $(< "$AUR_PKGS_LISTING_FILE") ; do
+    download_aur_pkg "$aur_pkg"
+  done
+  chmod -R 755 "$HOME/.cache/dotfiles"
+  cd && rm -r "$HOME/.cache/dotfiles"
+}
+
+if [[ "$INSTALL_PKGS" == "1" ]] ; then
+  if [[ "$INSTALL_COMMUNITY_PKGS" == "1" ]] ; then
+    # Pre-install pkgs
+    echo "Pacman: Refreshing package database..."
+    sudo pacman -Syy
+
+    # Install pkgs
+    echo "Installing community packages..."
+    sudo pacman -S $(cat "$COMMUNITY_PKGS_LISTING_FILE")
   fi
 
-  # Install pkgs
-  echo "Installing packages..."
-  $AUR_INSTALL_CMD $(cat "$SCRIPTS_DIR/../pkgs/aur-pkg-list")
-  sudo pacman -S $(cat "$SCRIPTS_DIR/../pkgs/com-pkg-list")
+  if [[ "$INSTALL_AUR_PKGS" == "1" ]] ; then
+    echo "Installing AUR packages..."
+    download_all_aur_pkgs
+  fi
 fi
 
 echo "Updating dotfiles..."
