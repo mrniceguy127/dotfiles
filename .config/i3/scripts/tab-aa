@@ -1,8 +1,6 @@
 #!/bin/zsh
 
-if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
-  source "$HOME/.scripts/env/env.zshrc"
-fi
+source "$HOME/.config/i3/scripts/termatt"
 
 if [[ -n "$TERMATT" ]]; then
   # i3 Primary 
@@ -27,11 +25,13 @@ if [[ -n "$TERMATT" ]]; then
   #   Wacom CTL-480 - HORIZ Centered
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4938x2740+411+0; echo $?)
   #   Wacom CTL-480 - Experimental Aspect Ratio
-  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5138x2740+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5138x2740+1920+0; echo $?)
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6138x2740+1920+0; echo $?)
   
   ###MAIN###
-  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
+  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
+  #tmp
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+0+0; echo $?)
   
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6047x3225+1920+0; echo $?)
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6047x3064+1920+0; echo $?)

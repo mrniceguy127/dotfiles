@@ -1,8 +1,6 @@
 #!/bin/zsh
 
-if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
-  source "$HOME/.scripts/env/env.zshrc"
-fi
+source "$HOME/.config/i3/scripts/termatt"
 
 if [[ -n "$TERMATT" ]]; then
   $TERMATT noise-supress

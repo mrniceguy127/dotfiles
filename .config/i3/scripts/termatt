@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TERMATT_FILE="$HOME/.scripts/env/env.termatt"
+
+if [[ -e "$TERMATT_FILE" ]] ; then
+  source "$TERMATT_FILE"
+fi

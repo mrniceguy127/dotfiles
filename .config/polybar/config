@@ -18,13 +18,6 @@
 
 
 [colors]
-; bg-main = #ff171a1f
-; bg-dark =  #ff0b0f15
-; bg-light = #ff2e3136
-; white = #ffffffff
-; wm-urgent = #77be3030
-; bg-tray = #ff171a1f
-
 bg-main = ${xrdb:background:#222}
 bg-dark =  ${xrdb:color0:#222}
 bg-light = ${xrdb:color0:#222}

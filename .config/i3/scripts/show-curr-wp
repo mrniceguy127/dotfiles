@@ -1,5 +1,5 @@
 #!/bin/bash
 
-CURR_WALLP="$(cat $HOME/.scripts/cache/setwp-curr)"
+CURR_WALLP="$HOME/.scripts/cache/wp/setwp-curr"
 
 feh $CURR_WALLP

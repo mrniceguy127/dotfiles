@@ -195,6 +195,9 @@ set $shell zsh
 # Desktop Themes
 set $icon_theme Tela-black-dark
 
+# Rofi
+set $rofi_scripts_dir ~/.scripts/rofi
+
 
 
 
@@ -210,7 +213,6 @@ bindsym $mod+Return exec $terminal
 # Start rofi (program launcher)
 #bindsym $mod+d exec --no-startup-id "rofi -modi window#run#ssh#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
 bindsym $mod+d exec --no-startup-id "rofi -modi run#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
-
 
 # For i3-gaps
 for_window [class=".*"] border pixel 0
@@ -256,6 +258,9 @@ bindsym $mod+Control+8 exec $scripts_dir/usewpconf 8
 # WP 9
 bindsym $mod+Control+9 exec $scripts_dir/usewpconf 9
 
+# Use alt profiles. Useful if you change wallpapers/themes every 10 minutes (like me!). (currently 1 or the other, will make more advanced)
+bindsym $mod+Control+w exec $scripts_dir/use-alt-profiles
+
 # feh wallpaper shortcut
 bindsym $mod+Shift+w exec $scripts_dir/show-curr-wp
 
@@ -274,7 +279,7 @@ bindsym $mod+Control+Shift+Return exec qutebrowser
 #   Brave ?
 
 # Notification Center Toggle
-bindsym $mod+n exec kill -s USR1 $(pidof deadd-notification-center)
+bindsym $mod+Tab exec kill -s USR1 $(pidof deadd-notification-center)
 
 # Compositor
 #   Start keybind

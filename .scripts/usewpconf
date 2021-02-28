@@ -1,25 +1,32 @@
 #!/bin/bash
 
-WP_CONF=$1
-WP_CACHE_FILE="$HOME/.scripts/cache/setwp-$WP_CONF"
-CURR_WP_FILE="$HOME/.scripts/cache/setwp-curr"
+WP_CONF="$1"
+WP_CACHE_DIR="$HOME/.scripts/cache/wp"
+WP_CACHE_FILE="$WP_CACHE_DIR/setwp-$WP_CONF"
+WP_CACHE_FILE_RELATIVE="./setwp-$WP_CONF" # For symlinks
+CURR_WP_FILE="$WP_CACHE_DIR/setwp-curr"
 WP_HOOK_SCRIPT="$HOME/.scripts/env/usewpconf/hook-$WP_CONF"
+WP_GLOBAL_HOOK_ENV="$HOME/.scripts/env/wp/global-hooks"
+NEW_WP="$WP_CACHE_FILE" # useful for quickly changing how wallpaper paths are resolved
 
 if [[ -e "$WP_CACHE_FILE" ]]; then
-  WALLP="$(cat $WP_CACHE_FILE)"
+  feh --bg-fill "$NEW_WP"
+fi
+
+if [[ "$WP_CONF" != "curr" ]] ; then
   rm "$CURR_WP_FILE"
-  ln -s "$WP_CACHE_FILE" "$CURR_WP_FILE"
-  feh --bg-fill $WALLP &
+  ln -s "$WP_CACHE_FILE_RELATIVE" "$CURR_WP_FILE"
 fi
 
 # Hooks for things you may want to do after setting a specific wallpaper.
 # Maybe change keyboard lighting?
-
 #   Global hook
-NEW_WP=$(cat "$CURR_WP_FILE")
-wal -i "$NEW_WP" &
+wal -nqi "$NEW_WP"
+if [[ -e "$WP_GLOBAL_HOOK_ENV" ]] ; then
+  $WP_GLOBAL_HOOK_ENV "$NEW_WP"
+fi
 
 #   Per-wallpaper hooks
 if [[ -e "$WP_HOOK_SCRIPT" ]]; then
-  $WP_HOOK_SCRIPT &
+  $WP_HOOK_SCRIPT
 fi
