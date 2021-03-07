@@ -188,7 +188,7 @@ set $ss_save_loc ~/screenshots
 
 # Environment
 
-set $scripts_dir ~/.config/i3/scripts
+set $scripts_dir ~/.scripts/wm
 set $terminal alacritty
 set $shell zsh
 

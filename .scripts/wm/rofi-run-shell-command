@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+source "$HOME/.zshrc"
+
+eval "$@"
+read -n 1 -s

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+source "$HOME/.config/i3/scripts/termatt"
+
+if [[ -n "$TERMATT" ]]; then
+  # Displays
+  PRIM_DISP=$(xrandr --listmonitors | grep '+\*' | cut -d ' ' -f 6 | tr -d '[:space:]')
+  SEC_DISP=$(xrandr --listmonitors | grep -v '+\*' | cut -d ' ' -f 6 | cut -d ' ' -f 1 | tr -d '[:space:]')
+  xrandr --output $PRIM_DISP --mode 1920x1080 --rate 144.00
+fi

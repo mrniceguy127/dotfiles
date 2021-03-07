@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 if [[ ! -n "$REPO_LOC" ]]; then
   REPO_LOC="$HOME/.dotfiles"
@@ -12,40 +12,46 @@ if [[ ! -n "$BAK_DEST" ]]; then
   BAK_DEST="$REPO_LOC"
 fi
 
+backup_dir() {
+  local SUBDIR="$1"
+  mkdir -p "$BAK_DEST/$SUBDIR/"
+  cp -r "$ORIGIN/$SUBDIR/"* "$BAK_DEST/$SUBDIR/"
+}
+
+backup_file() {
+  local FILE="$1"
+  cp "$ORIGIN/$FILE" "$BAK_DEST/$FILE"
+}
+
+backup_wallpapers() {
+  mkdir -p "$BAK_DEST/Wallpapers"
+  while read wp; do
+    cp "$ORIGIN/Wallpapers/$wp" "$BAK_DEST/Wallpapers/"
+  done < "$REPO_LOC/dotfile-utils/wallpapers-to-bak"
+}
+
 echo  "Backing up dot files to '$BAK_DEST'..."
 
 mkdir -p "$BAK_DEST"
-mkdir -p "$BAK_DEST/.config/alacritty/"
-mkdir -p "$BAK_DEST/.config/i3/"
-mkdir -p "$BAK_DEST/.config/polybar/"
-mkdir -p "$BAK_DEST/.config/rofi/"
-mkdir -p "$BAK_DEST/.config/ranger/"
-mkdir -p "$BAK_DEST/.config/deadd/"
-mkdir -p "$BAK_DEST/.config/neofetch/"
-mkdir -p "$BAK_DEST/.local/share/nautilus/scripts/"
-mkdir -p "$BAK_DEST/.scripts/"
-mkdir -p "$BAK_DEST/.toys/"
-mkdir -p "$BAK_DEST/Wallpapers/"
 
-cp -r "$ORIGIN/.config/i3/"* "$BAK_DEST/.config/i3/"
-cp -r "$ORIGIN/.config/alacritty/"* "$BAK_DEST/.config/alacritty/"
-cp -r "$ORIGIN/.config/polybar/"* "$BAK_DEST/.config/polybar/"
-cp -r "$ORIGIN/.config/rofi/"* "$BAK_DEST/.config/rofi/"
-cp -r "$ORIGIN/.config/ranger/"* "$BAK_DEST/.config/ranger/"
-cp -r "$ORIGIN/.config/deadd/"* "$BAK_DEST/.config/deadd/"
-cp -r "$ORIGIN/.config/neofetch/"* "$BAK_DEST/.config/neofetch/"
-cp -r "$ORIGIN/.local/share/nautilus/scripts/"* "$BAK_DEST/.local/share/nautilus/scripts"
-cp -r "$ORIGIN/.scripts/"* "$BAK_DEST/.scripts/"
-cp -r "$ORIGIN/.toys/"* "$BAK_DEST/.toys/"
+backup_dir ".config/alacritty"
+backup_dir ".config/i3"
+backup_dir ".config/polybar"
+backup_dir ".config/rofi"
+backup_dir ".config/ranger"
+backup_dir ".config/deadd"
+backup_dir ".config/neofetch"
+backup_dir ".config/openbox"
+backup_dir ".local/share/nautilus/scripts"
+backup_dir ".scripts"
+backup_dir ".toys"
 
-while read wp; do
-  cp "$ORIGIN/Wallpapers/$wp" "$BAK_DEST/Wallpapers/"
-done < "$REPO_LOC/dotfile-utils/wallpapers-to-bak"
+backup_wallpapers
 
-cp "$ORIGIN/.config/compton.conf" "$BAK_DEST/.config/"
-cp "$ORIGIN/.vimrc" "$BAK_DEST/"
-cp "$ORIGIN/.zprofile" "$BAK_DEST/"
-cp "$ORIGIN/.zshrc" "$BAK_DEST/"
-cp "$ORIGIN/.Xresources" "$BAK_DEST/"
+backup_file ".config/compton.conf"
+backup_file ".vimrc"
+backup_file ".zprofile"
+backup_file ".zshrc"
+backup_file ".Xresources"
 
 echo "Done!"

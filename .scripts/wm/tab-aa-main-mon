@@ -1,0 +1,42 @@
+#!/bin/zsh
+
+source "$HOME/.config/i3/scripts/termatt"
+
+if [[ -n "$TERMATT" ]]; then
+  # i3 Primary 
+  #   Pens
+  #     With xppen official beta drivers
+  #PEN='XPPEN Tablet Pen (0)'
+  #     With native kernel support
+  #PEN='XP-PEN STAR G640 Pen Pen (0)'
+  # Wacom CTL-480
+  PEN="Wacom Intuos S Pen"
+  #   Active area configs
+  #     With xppen official beta drivers
+  #xinput set-prop "$PEN" --type=float "Coordinate Transformation Matrix" 2.7 0 -0.85 0 2.7 0 0 0 1 # Monitor layout makes this really weird for some reason...
+  #     With native kernel support
+  #xinput set-prop "$PEN" --type=float "Coordinate Transformation Matrix" 2.7 0 1 0 5.4 0 0 0 2 # Monitor layout makes this really weird for some reason...
+  #xinput set-prop "$PEN" --type=float "Coordinate Transformation Matrix" 3.2 0 1 0 6.4 0 0 0 3
+  # Experimental active area: 
+  #   XP-Pen G640
+  #XINPUT_EXIT_CODE=$(xinput set-prop "$pen" --type=float "coordinate transformation matrix" 2.7 0 1 0 5.4 0 0 0 2; echo $?)
+  #   Wacom CTL-480 - Top right of tablet
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4938x2740+1920+0; echo $?)
+  #   Wacom CTL-480 - HORIZ Centered
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4938x2740+411+0; echo $?)
+  #   Wacom CTL-480 - Experimental Aspect Ratio
+  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 1920x1080+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6138x2740+1920+0; echo $?)
+  
+  ###MAIN###
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
+  
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6047x3225+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6047x3064+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6228x3322+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 1920x1080+1920+0; echo $?)
+  if [ $XINPUT_EXIT_CODE -gt 0 ]; then
+    exit 1
+  fi
+  # Monitor layout makes this really weird for some reason...
+fi

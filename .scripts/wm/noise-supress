@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+source "$HOME/.config/i3/scripts/termatt"
+
+if [[ -n "$TERMATT" ]]; then
+  $TERMATT noise-supress
+fi
