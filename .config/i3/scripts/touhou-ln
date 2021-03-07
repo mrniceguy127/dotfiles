@@ -1,9 +1,0 @@
-#!/bin/zsh
-
-source "$HOME/.config/i3/scripts/termatt"
-
-if [[ -n "$TERMATT" ]]; then
-  THLN_CKB_PIPE="/tmp/ckbpipe001"
-  steam "steam://run/851100"
-fi
-

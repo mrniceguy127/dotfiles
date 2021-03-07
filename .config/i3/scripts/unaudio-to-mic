@@ -1,7 +1,0 @@
-#!/bin/bash
-
-source "$HOME/.config/i3/scripts/termatt"
-
-if [[ -n "$TERMATT" ]]; then
-  $TERMATT unaudio-to-mic
-fi
