@@ -187,16 +187,12 @@ set $lockscreenmsg "Come back two hours earlier."
 set $ss_save_loc ~/screenshots
 
 # Environment
-
 set $scripts_dir ~/.scripts/wm
 set $terminal alacritty
 set $shell zsh
 
 # Desktop Themes
 set $icon_theme Tela-black-dark
-
-# Rofi
-set $rofi_scripts_dir ~/.scripts/rofi
 
 
 
@@ -211,8 +207,7 @@ set $rofi_scripts_dir ~/.scripts/rofi
 bindsym $mod+Return exec $terminal
 
 # Start rofi (program launcher)
-#bindsym $mod+d exec --no-startup-id "rofi -modi window#run#ssh#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
-bindsym $mod+d exec --no-startup-id "rofi -modi run#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
+bindsym $mod+d exec --no-startup-id $scripts_dir/rofi
 
 # For i3-gaps
 for_window [class=".*"] border pixel 0
@@ -306,7 +301,7 @@ for_window [class="Spotify"] move to workspace $ws2 # assign [class="Spotify"] $
 for_window [class="Spotify"] layout tabbed
 
 # i3 Startup Scripts
-exec --no-startup-id $scripts_dir/i3-startup &
+exec --no-startup-id $scripts_dir/startup &
 
 # Move work space to other monitor
 bindsym $mod+Control+Left move workspace to output left

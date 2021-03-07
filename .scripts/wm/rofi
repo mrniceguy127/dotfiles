@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+# IGNORE THIS
+#bindsym $mod+d exec --no-startup-id "rofi -modi window#run#ssh#drun -icon-theme \\"$icon_theme\\" -show-icons -show drun -font \\"DejaVu 10\\" -run-shell-command '$terminal -e $shell -c \\"$scripts_dir/rofi-run-shell-command {cmd}\\"' -ssh-command '$terminal -e $shell -c \\"{ssh-client} {host}\\"'"
+
+
+
+
+icon_theme="Tela-black-dark"
+scripts_dir="$HOME/.scripts/wm"
+terminal="alacritty"
+shell="zsh"
+
+rofi -modi run#drun -icon-theme "$icon_theme" -show-icons -show drun -font "DejaVu 10" -run-shell-command '$terminal -e $shell -c "$scripts_dir/rofi-run-shell-command {cmd}"' -ssh-command '$terminal -e $shell -c "{ssh-client} {host}"'
+

@@ -19,10 +19,6 @@ if [[ -n "$TERMATT" ]]; then
   KILL_PICOM_SCRIPT="$I3_SCRIPTS/picom-kill"
   $KILL_PICOM_SCRIPT
 
-  #ckb-next --profile 'Doremy' --mode 'Doremy (osu!)'
-
-  $TERMATT osu-wine-rpc &
-
   osu-wine
 
   START_PICOM_SCRIPT="$I3_SCRIPTS/picom"

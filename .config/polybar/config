@@ -39,7 +39,7 @@ font-2 = "Siji:style=Regular:size=10;0"
 font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
 
-modules-left = i3
+modules-left = i3 bspwm
 modules-right = github cpu memory wired-network  alsa date time
 
 height = ${const.bar-height}
@@ -79,7 +79,7 @@ font-2 = "Siji:style=Regular:size=10;0"
 font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
 
-modules-left = i3
+modules-left = i3 bspwm
 modules-right = github cpu memory wired-network  alsa date time
 
 height = ${const.bar-height}
@@ -145,6 +145,7 @@ label-focused-alignment = left
 label-focused-foreground = ${colors.white}
 label-focused-background = ${colors.bg-dark}
 label-focused-padding = 2
+label-focused-underline = ${colors.white}
 
 label-urgent = %name:1:1%
 label-urgent-foreground = ${colors.white}
@@ -152,7 +153,6 @@ label-urgent-background = ${colors.wm-urgent}
 label-urgent-padding = 2
 
 label-visible = "%name:1:1%"
-label-focused-underline = ${colors.white}
 label-visible-foreground = ${colors.white}
 label-visible-background = ${colors.bg-light}
 label-visible-padding = 2
@@ -164,6 +164,34 @@ label-unfocused-padding = 2
 
 strip-wsnumbers = true
 
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name:1:1%
+label-focused-alignment = left
+label-focused-foreground = ${colors.white}
+label-focused-background = ${colors.bg-dark}
+label-focused-padding = 2
+label-focused-underline = ${colors.white}
+
+label-urgent = %name:1:1%
+label-urgent-foreground = ${colors.white}
+label-urgent-background = ${colors.wm-urgent}
+label-urgent-padding = 2
+
+label-visible = "%name:1:1%"
+label-visible-foreground = ${colors.white}
+label-visible-background = ${colors.bg-light}
+label-visible-padding = 2
+
+label-occupied = %name:1:1%
+label-occupied-foreground = ${colors.white}
+label-occupied-background = ${colors.bg-light}
+label-occupied-padding = 2
+
+label-empty = 
+
+strip-wsnumbers = true
 
 [module/cpu]
 type = internal/cpu
