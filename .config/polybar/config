@@ -149,7 +149,7 @@ label-focused-padding = 2
 label-focused-underline = ${colors.white}
 
 label-urgent = %name:1:1%
-label-urgent-foreground = ${colors.white}
+label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.wm-urgent}
 label-urgent-padding = 2
 
