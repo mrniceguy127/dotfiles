@@ -19,11 +19,13 @@
 
 [colors]
 bg-main = ${xrdb:background:#222}
+bg-secondary = ${xrdb:color4:#222}
+foreground = ${xrdb:color0:#222}
 bg-dark =  ${xrdb:color0:#222}
 bg-light = ${xrdb:color0:#222}
 white = ${xrdb:color7:#222}
-wm-urgent = ${xrdb:color1:#222}
-bg-tray = ${xrdb:background:#222}
+wm-urgent = ${xrdb:color4:#222}
+bg-tray = ${xrdb:color4:#222}
 
 [const]
 bar-height = 26
@@ -32,6 +34,9 @@ bar-height = 26
 monitor = ${env:MONITOR:}
 monitor-strict = true
 fixed-center = true
+
+foreground = ${colors.foreground}
+background = ${colors.bg-main}
 
 font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=8;0"
 font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
@@ -46,18 +51,12 @@ height = ${const.bar-height}
 
 bottom=true
 
-module-margin-left = 2
-module-margin-right = 2
-
-padding-right = 3
-
 separator = 
 
 tray-position = right
 tray-maxsize = 16
 tray-background = ${colors.bg-tray}
 
-background = ${colors.bg-main}
 
 ; Underline / overline
 line-size = 1
@@ -73,6 +72,8 @@ monitor = ${env:MONITOR:}
 monitor-strict = true
 fixed-center = true
 
+foreground = ${colors.foreground}
+
 font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=8;0"
 font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
 font-2 = "Siji:style=Regular:size=10;0"
@@ -85,11 +86,6 @@ modules-right = github cpu memory wired-network  alsa date time
 height = ${const.bar-height}
 
 bottom=true
-
-module-margin-left = 2
-module-margin-right = 2
-
-padding-right = 3
 
 separator = 
 
@@ -109,6 +105,8 @@ wm-restack = i3
 type = internal/date
 
 format =  <label>
+format-padding = 3
+format-background = ${colors.bg-secondary}
 
 date = %m/%d/%Y (%A)
 
@@ -120,6 +118,8 @@ label = %date%
 type = internal/date
 
 format =  <label>
+format-padding = 3
+format-background = ${colors.bg-secondary}
 
 time = %l:%M:%S %p
 
@@ -128,12 +128,13 @@ label = %time%
 [module/alsa]
 type = internal/pulseaudio
 
+format-volume-padding = 3
+format-volume-background = ${colors.bg-secondary}
+
 format-volume = <ramp-volume> <label-volume>
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-format-padding = ${general.padding}
-
 
 [module/i3]
 type = internal/i3
@@ -198,6 +199,9 @@ type = internal/cpu
 format = <label>
 interval = 1
 label =  %percentage:3:3%% CPU
+label-background = ${colors.bg-secondary}
+
+label-padding = 3
 
 ;ramp-coreload-spacing = 1
 ;ramp-coreload-0 = ▁
@@ -215,15 +219,20 @@ type = internal/memory
 interval = 3
 
 label =  %gb_used:6:6% RAM
+label-padding = 3
+label-background = ${colors.bg-secondary}
 
 [module/wired-network]
 type = internal/network
 interface = enp0s31f6
 
-format-connected = <label-connected>
-interval = 3.0
-
 label-connected =  %downspeed:9:9%
+
+format-connected = <label-connected>
+format-connected-padding = 3
+format-connected-background = ${colors.bg-secondary}
+
+interval = 3.0
 
 [module/github]
 type = internal/github
@@ -238,4 +247,5 @@ empty-notifications = false
 interval = 30
 
 label =  %notifications%
+label-padding = 3
 

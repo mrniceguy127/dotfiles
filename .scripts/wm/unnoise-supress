@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$HOME/.config/i3/scripts/termatt"
+source "$HOME/.scripts/wm/termatt"
 
 if [[ -n "$TERMATT" ]]; then
   $TERMATT unnoise-supress

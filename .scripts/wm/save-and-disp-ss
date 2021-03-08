@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPTS_DIR="$HOME/.config/i3/scripts"
+SCRIPTS_DIR="$HOME/.scripts/wm"
 SAVE_SS_SCRIPT="$SCRIPTS_DIR/save-ss"
 SCRIPT_ARGS="$@"
 FILE_NAME="$($SAVE_SS_SCRIPT $SCRIPT_ARGS)"
