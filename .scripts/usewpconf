@@ -9,6 +9,10 @@ WP_HOOK_SCRIPT="$HOME/.scripts/env/usewpconf/hook-$WP_CONF"
 WP_GLOBAL_HOOK_ENV="$HOME/.scripts/env/wp/global-hooks"
 NEW_WP="$WP_CACHE_FILE" # useful for quickly changing how wallpaper paths are resolved
 
+
+source "$HOME/.scripts/wal-functions"
+
+
 if [[ -e "$WP_CACHE_FILE" ]]; then
   feh --bg-fill "$NEW_WP"
 fi

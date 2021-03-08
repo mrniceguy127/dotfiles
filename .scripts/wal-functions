@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+clear_wal_cache() {
+  # We need to delete cached colorschemes because wal will resort to the cached
+  # colorscheme of the "curr" wallpaper. This is undesirable because the "curr"
+  # wallpaper is no longer the same as it was when wal cached the "curr"
+  # colorscheme initially.
+  wal -c
+}
+
+run_wal () {
+  wal $@
+  pywalfox update
+}
+
+alias wal="run_wal"

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source "$HOME/.scripts/wal-functions"
+
+
 WP_CONF=$1
 WALLP=$(echo "$2" | sed 's/^\s*//g' | sed 's/\s*$//g')
 
@@ -11,8 +14,8 @@ USEWPCONF="$HOME/.scripts/usewpconf"
 mkdir -p "$CACHE_DIR"
 
 if [[ -L "$CACHE_FILE_PATH" || -e "$CACHE_FILE_PATH" ]] ; then
+  clear_wal_cache
   rm "$CACHE_FILE_PATH"
-  echo test
 fi
 
 echo "$CACHE_FILE_PATH"

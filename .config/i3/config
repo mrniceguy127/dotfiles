@@ -374,3 +374,20 @@ bindsym $mod+Control+Shift+slash exec poweroff
 bindsym $mod+Control+Shift+period exec reboot
 # Hibernate shortcut
 bindsym $mod+Control+Shift+comma exec systemctl hibernate
+
+
+
+# Colors
+set_from_resource $fg i3wm.color0
+set_from_resource $bg i3wm.color4
+set_from_resource $bg-secondary i3wm.color6
+set_from_resource $bg-urgent i3wm.color1
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg-secondary     $bg-secondary     $fg  $bg-secondary       $bg-secondary
+client.urgent           $bg-urgent     $bg-urgent     $fg  $bg-urgent       $bg-urgent
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
