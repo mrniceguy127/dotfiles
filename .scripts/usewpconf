@@ -25,7 +25,7 @@ fi
 # Hooks for things you may want to do after setting a specific wallpaper.
 # Maybe change keyboard lighting?
 #   Global hook
-wal -nqi "$NEW_WP"
+run_wal -nqi "$NEW_WP"
 if [[ -e "$WP_GLOBAL_HOOK_ENV" ]] ; then
   $WP_GLOBAL_HOOK_ENV "$NEW_WP"
 fi

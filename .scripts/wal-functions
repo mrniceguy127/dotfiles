@@ -13,5 +13,3 @@ run_wal () {
   wal $@
   pywalfox update
 }
-
-alias wal="run_wal"
