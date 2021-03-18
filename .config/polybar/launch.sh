@@ -11,17 +11,25 @@ PRIM_DISP=$(xrandr --listmonitors | grep '+\*' | cut -d ' ' -f 6 | tr -d '[:spac
 SEC_DISP=$(xrandr --listmonitors | grep -v '+\*' | cut -d ' ' -f 6 | cut -d ' ' -f 1 | tr -d '[:space:]')
 
 # Bars
-PRIM_BAR=primbar
-SEC_BAR=secbar
+PRIM_BAR_TOP=prim-bar-top
+SEC_BAR_TOP=sec-bar-top
+
+PRIM_BAR_BOTTOM=bar-bottom
+SEC_BAR_BOTTOM=bar-bottom
 
 # Primary display
 if [[ $(xrandr | grep $PRIM_DISP) == *' connected'* ]]; then
-  MONITOR=$PRIM_DISP polybar -r $PRIM_BAR &
+  MONITOR=$PRIM_DISP polybar -r $PRIM_BAR_TOP &
+  MONITOR=$PRIM_DISP polybar -r $PRIM_BAR_BOTTOM &
   echo "Primary display bar launched"
 fi
 
 # Secondary Display
 if [[ $(xrandr | grep $SEC_DISP) == *' connected'* ]]; then
-  MONITOR=$SEC_DISP polybar -r $SEC_BAR &
+  MONITOR=$SEC_DISP polybar -r $SEC_BAR_TOP &
+  MONITOR=$SEC_DISP polybar -r $SEC_BAR_BOTTOM &
   echo "Secondary display bar launched"
 fi
+
+
+# Bottom bar

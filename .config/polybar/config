@@ -28,12 +28,22 @@ wm-urgent = ${xrdb:color4:#222}
 bg-tray = ${xrdb:color4:#222}
 
 [const]
-bar-height = 26
+bar-height = 28
 
-[bar/primbar]
-monitor = ${env:MONITOR:}
+[bar/main]
 monitor-strict = true
 fixed-center = true
+
+module-margin-left = 0
+module-margin-right = 0
+
+padding = 0
+
+offset-x = 0%
+offset-y = 0%
+
+dpi-x = 0
+dpi-y = 0
 
 foreground = ${colors.foreground}
 background = ${colors.bg-main}
@@ -43,62 +53,55 @@ font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
 font-2 = "Siji:style=Regular:size=10;0"
 font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
-
-modules-left = i3 bspwm
-modules-right = github cpu memory wired-network  alsa date time
+font-5 = "Hack Nerd Font:style=Regular:pixelsize=21;6"
 
 height = ${const.bar-height}
 
-bottom=true
-
 separator = 
+
+; Underline / overline
+line-size = 1
+
+; i3
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+override-redirect = true
+wm-restack = i3
+
+[bar/prim-bar-top]
+inherit=bar/main
+
+bottom=false
+
+modules-left = i3 bspwm
+modules-center = date time
+modules-right = decor2
+
+monitor = ${env:MONITOR:}
 
 tray-position = right
 tray-maxsize = 16
 tray-background = ${colors.bg-tray}
 
+[bar/sec-bar-top]
+inherit=bar/main
 
-; Underline / overline
-line-size = 1
-
-; i3
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-override-redirect = true
-wm-restack = i3
-
-[bar/secbar]
-monitor = ${env:MONITOR:}
-monitor-strict = true
-fixed-center = true
-
-foreground = ${colors.foreground}
-
-font-0 = "DejaVu Sans Mono:style=Bold:pixelsize=8;0"
-font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
-font-2 = "Siji:style=Regular:size=10;0"
-font-3 = "FreeMono:style=Regular:size=10;0"
-font-4 = "FontAwesome:style=Regular:size=10;0"
+bottom=false
 
 modules-left = i3 bspwm
-modules-right = github cpu memory wired-network  alsa date time
+modules-center = date time
 
-height = ${const.bar-height}
+monitor = ${env:MONITOR:}
+
+[bar/bar-bottom]
+inherit=bar/main
+
+modules-right = decor0 cpu memory wired-network alsa
+modules-left = github
 
 bottom=true
 
-separator = 
-
-background = ${colors.bg-main}
-
-; Underline / overline
-line-size = 1
-
-; i3
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-override-redirect = true
-wm-restack = i3
+monitor = ${env:MONITOR:}
 
 
 [module/date]
@@ -106,7 +109,8 @@ type = internal/date
 
 format =  <label>
 format-padding = 3
-format-background = ${colors.bg-secondary}
+format-background = ${colors.bg-main}
+format-foreground = ${colors.white}
 
 date = %m/%d/%Y (%A)
 
@@ -119,7 +123,8 @@ type = internal/date
 
 format =  <label>
 format-padding = 3
-format-background = ${colors.bg-secondary}
+format-background = ${colors.bg-main}
+format-foreground = ${colors.white}
 
 time = %l:%M:%S %p
 
@@ -144,7 +149,7 @@ index-sort = true
 label-focused = %name:1:1%
 label-focused-alignment = left
 label-focused-foreground = ${colors.white}
-label-focused-background = ${colors.bg-dark}
+label-focused-backgroundwidth = 6
 label-focused-padding = 2
 label-focused-underline = ${colors.white}
 
@@ -168,7 +173,7 @@ strip-wsnumbers = true
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %name:1:1%
+label-focused = %name:1:1%width = 6
 label-focused-alignment = left
 label-focused-foreground = ${colors.white}
 label-focused-background = ${colors.bg-dark}
@@ -248,4 +253,35 @@ interval = 30
 
 label =  %notifications%
 label-padding = 3
+
+
+
+
+
+
+
+; User modules
+
+[module/decor-glyph]
+type = custom/text
+content-background = ${colors.bg-main}
+content-foreground = ${colors.bg-secondary}
+
+[module/decor0]
+inherit = module/decor-glyph
+content = "%{T5}     %{T-}"
+
+[module/decor1]
+inherit = module/decor-glyph
+content = "%{T5}     %{T-}"
+
+[module/decor2]
+inherit = module/decor-glyph
+content = "%{T5}     %{T-}"
+
+[module/decor3]
+inherit = module/decor-glyph
+content = "%{T5}%{T-}"
+
+
 

@@ -212,8 +212,8 @@ bindsym $mod+d exec --no-startup-id $scripts_dir/rofi
 # For i3-gaps
 for_window [class=".*"] border pixel 0
 # gaps [inner|outer|horizontal|vertical|top|left|bottom|right] <px>
-gaps bottom 24 # For bottom bar placement
-gaps inner 8
+gaps inner 16
+gaps outer 24
 smart_borders on
 
 # Wallpaper
@@ -268,11 +268,6 @@ bindsym $mod+Shift+f exec nautilus
 #   Ranger keybind (Terminal-based)
 bindsym $mod+Shift+Return exec $terminal -e ranger ~
 
-# Browser(s)
-#   qutebrowser
-bindsym $mod+Control+Shift+Return exec qutebrowser
-#   Brave ?
-
 # Notification Center Toggle
 bindsym $mod+Tab exec kill -s USR1 $(pidof deadd-notification-center)
 
@@ -295,8 +290,7 @@ assign [class="Steam"] $ws6
 for_window [class="Steam"] layout tabbed
 assign [class="discord"] $ws3
 assign [class="Slack"] $ws5
-assign [class="Brave-browser"] $ws2
-#assign [class="qutebrowser"] $ws2
+assign [class="firefox"] $ws2
 for_window [class="Spotify"] move to workspace $ws2 # assign [class="Spotify"] $ws2 # Known issue with spotify, use work around
 for_window [class="Spotify"] layout tabbed
 

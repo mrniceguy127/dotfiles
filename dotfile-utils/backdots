@@ -49,7 +49,7 @@ backup_dir ".toys"
 
 backup_wallpapers
 
-backup_file ".config/compton.conf"
+backup_file ".config/picom.conf"
 backup_file ".vimrc"
 backup_file ".zprofile"
 backup_file ".zshrc"
