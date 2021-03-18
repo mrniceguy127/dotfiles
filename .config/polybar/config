@@ -53,7 +53,9 @@ font-1 = unifont:fontformat=truetype:size=8:weight=bold:antialias=false;0
 font-2 = "Siji:style=Regular:size=10;0"
 font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
-font-5 = "Hack Nerd Font:style=Regular:pixelsize=21;6"
+
+font-5 = "Hack Nerd Font:style=Regular:pixelsize=22;5"
+font-6 = "Hack Nerd Font:style=Regular:pixelsize=22;6"
 
 height = ${const.bar-height}
 
@@ -277,7 +279,7 @@ content = "%{T5}     %{T-}"
 
 [module/decor2]
 inherit = module/decor-glyph
-content = "%{T5}     %{T-}"
+content = "%{T6} %{T-}"
 
 [module/decor3]
 inherit = module/decor-glyph
