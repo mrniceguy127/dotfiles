@@ -54,8 +54,9 @@ font-2 = "Siji:style=Regular:size=10;0"
 font-3 = "FreeMono:style=Regular:size=10;0"
 font-4 = "FontAwesome:style=Regular:size=10;0"
 
-font-5 = "Hack Nerd Font:style=Regular:pixelsize=22;5"
-font-6 = "Hack Nerd Font:style=Regular:pixelsize=22;6"
+font-5 = "Hack Nerd Font:antialias=true:autohint=true:style=Regular:pixelsize=22;5"
+font-6 = "Hack Nerd Font:antialias=false:autohint=true:style=Regular:pixelsize=22;6"
+font-7 = "Hack Nerd Font:antialias=false:autohint=true:style=Regular:pixelsize=22;5"
 
 height = ${const.bar-height}
 
@@ -77,13 +78,9 @@ bottom=false
 
 modules-left = i3 bspwm
 modules-center = date time
-modules-right = decor2
+modules-right = github
 
 monitor = ${env:MONITOR:}
-
-tray-position = right
-tray-maxsize = 16
-tray-background = ${colors.bg-tray}
 
 [bar/sec-bar-top]
 inherit=bar/main
@@ -92,14 +89,27 @@ bottom=false
 
 modules-left = i3 bspwm
 modules-center = date time
+modules-right = github
 
 monitor = ${env:MONITOR:}
 
-[bar/bar-bottom]
+[bar/prim-bar-bottom]
 inherit=bar/main
 
-modules-right = decor0 cpu memory wired-network alsa
-modules-left = github
+modules-left = cpu memory wired-network alsa
+
+bottom=true
+
+monitor = ${env:MONITOR:}
+
+tray-position = right
+tray-maxsize = 16
+tray-background = ${colors.bg-tray}
+
+[bar/sec-bar-bottom]
+inherit=bar/main
+
+modules-left = cpu memory wired-network alsa
 
 bottom=true
 
@@ -245,15 +255,14 @@ interval = 3.0
 type = internal/github
 
 token=${file:~/.access-toks/github-polybar}
+user = ${file:~/.access-toks/github-username}
 
-; unreleased, test when it is.
-; user = ${file:~/.access-toks/github-username}
+empty-notifications = true
 
-empty-notifications = false
-
-interval = 30
+interval = 10
 
 label =  %notifications%
+label-offline = N/A
 label-padding = 3
 
 
@@ -275,7 +284,7 @@ content = "%{T5}     %{T-}"
 
 [module/decor1]
 inherit = module/decor-glyph
-content = "%{T5}     %{T-}"
+content = "%{T7}     %{T-}"
 
 [module/decor2]
 inherit = module/decor-glyph

@@ -8,7 +8,7 @@ Xft.lcdfilter: lcddefault
 
 
 ! URxvt
-URxvt*font: xft:Hack Nerd Font:style=Regular:pixelsize=16:antialias=true:autohint=true
+URxvt*font: xft:Hack Nerd Font:style=Regular:pixelsize=16:antialias=false:autohint=true
 URxvt*scrollBar: False
 
 

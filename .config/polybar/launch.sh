@@ -14,8 +14,8 @@ SEC_DISP=$(xrandr --listmonitors | grep -v '+\*' | cut -d ' ' -f 6 | cut -d ' ' 
 PRIM_BAR_TOP=prim-bar-top
 SEC_BAR_TOP=sec-bar-top
 
-PRIM_BAR_BOTTOM=bar-bottom
-SEC_BAR_BOTTOM=bar-bottom
+PRIM_BAR_BOTTOM=prim-bar-bottom
+SEC_BAR_BOTTOM=sec-bar-bottom
 
 # Primary display
 if [[ $(xrandr | grep $PRIM_DISP) == *' connected'* ]]; then
