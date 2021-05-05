@@ -27,9 +27,18 @@ if [[ -n "$TERMATT" ]]; then
   #   Wacom CTL-480 - Experimental Aspect Ratio
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5138x2740+1920+0; echo $?)
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6138x2740+1920+0; echo $?)
-  
+ 
+  # Stylus names - These change randomly for some stupid reason
+  STYLUS_NAME='Wacom Intuos S Pen stylus'
+  #STYLUS_NAME='Wacom Intuos S Pen Pen (0)'
+
   ###MAIN###
-  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
+  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5340x3004+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3840x2160+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4800x2700+1920+0; echo $?)
+#ONE MON
+#  XINPUT_EXIT_CODE=$(xsetwacom set "$STYLUS_NAME" MapToOutput 5340x3004+0+0; echo $?)
   #tmp
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+0+0; echo $?)
   

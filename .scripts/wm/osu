@@ -12,8 +12,8 @@ if [[ -n "$TERMATT" ]]; then
     PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
   done
 
-  xsetwacom --set "Wacom Intuos S Pen stylus" Button 2 key "shift"
-  xsetwacom --set "Wacom Intuos S Pen stylus" Button 3 key "shift"
+  xsetwacom --set "Wacom Intuos S Pen Pen (0)" Button 2 key "shift"
+  xsetwacom --set "Wacom Intuos S Pen Pen (0)" Button 3 key "shift"
 
 
   KILL_PICOM_SCRIPT="$WM_SCRIPTS/picom-kill"

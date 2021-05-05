@@ -313,12 +313,22 @@ bindsym $mod+Control+Mod1+s exec $scripts_dir/save-disp-and-clip-ss $ss_save_loc
 # Ansii art
 #bindsym $mod+m exec printf "█" | xclip -selection clipboard && xclip -o█
 
+# Resolution work arounds
+mode "resolution" {
+# "Normal" Mode
+  bindsym 0 exec $scripts_dir/normal-display
+# 60Hz Mode
+  bindsym 1 exec $scripts_dir/60hz-primary-display
+# Touhou Mode
+  bindsym 2 exec $scripts_dir/touhou-display
+
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+y mode "resolution"
+
+
 # Game shortcuts
-#   Touhou
-#    Touhou Mode
-bindsym $mod+Control+Shift+y exec $scripts_dir/touhou-mode
-#    Un-Touhou Mode
-bindsym $mod+Shift+y exec $scripts_dir/un-touhou-mode
 #   osu!
 #     start
 bindsym $mod+Control+Shift+o exec $scripts_dir/osu

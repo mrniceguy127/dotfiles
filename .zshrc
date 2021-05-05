@@ -31,41 +31,10 @@ plugins=(
 	tmux
         zsh-autosuggestions
 	zsh-syntax-highlighting
+	colorize
 )
 source "$ZSH/oh-my-zsh.sh"
 
-alias update="yay -Syyu"
-alias termart="$HOME/.toys/termart"
-#alias ta=termart
-alias nue='termart nue'
-alias kanna='termart kanna'
-alias open="xdg-open"
-alias o="open"
-#alias plz='sudo !!' # '!!: Command not found' ???
-alias install="sudo pacman -S"
-alias ..="cd .."
-alias grep="grep --color=auto"
-alias ls="ls -shN --color=auto --group-directories-first"
-alias may="MAKEFLAGS=\"-j$(nproc)\" yay"
-alias f="ranger ."
-alias c="cat"
-alias pa="pulseaudio"
-alias ga="git add ."
-alias gp="git push"
-alias gP="git pull"
-alias p="python3"
-alias pki="pkill --signal=SIGKILL"
-alias ram="ps axch -o cmd:15,%mem --sort=-%mem | head"
-alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
-alias cp="cp -iv"
-alias mv="mv -iv"
-alias mhz='watch -n 1 "cat /proc/cpuinfo | grep MHz"'
-alias vi='vim'
-alias v='vim'
-
-if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
-  source "$HOME/.scripts/env/env.zshrc"
-fi
 
 # pywal
 mkdir -p "$HOME/.cache/wal"
@@ -73,8 +42,18 @@ touch "$HOME/.cache/wal/sequences"
 (cat ~/.cache/wal/sequences &)
 
 # Quick command navigation
+#   ctrl+left
 bindkey "^[Od" backward-word
+#   ctrl+right
 bindkey "^[Oc" forward-word
+#   ctrl+up
+bindkey "^[[1;5A" beginning-of-line
+#   ctrl+down
+bindkey "^[[1;5B" end-of-line
+#   ctrl+backspace
+bindkey "^H" backward-kill-word
+#   ctrl+del
+bindkey "^[[3;5~" kill-word
 
 # Dirstack - https://wiki.archlinux.org/index.php/Zsh#Sample_.zshrc_files
 autoload -Uz add-zsh-hook
@@ -105,7 +84,7 @@ fi
 chpwd_dirstack() {
 	print -l -- "$PWD" "${(u)dirstack[@]}" > "$DIRSTACKFILE"
 }
-#add-zsh-hook -Uz chpwd chpwd_dirstack
+add-zsh-hook -Uz chpwd chpwd_dirstack
 
 DIRSTACKSIZE='20'
 
@@ -135,3 +114,38 @@ PERCENT_f='%f'
 PERCENT_B='%B'
 PERCENT_b='%b'
 PROMPT="$(printf '$PROMPT_FIRST$PROMPT_DATETIME$PERCENT_F{8}\ue0b0$PERCENT_f\n$PROMPT_SECOND')"
+
+
+# Aliases
+
+alias update="yay -Syyu"
+alias termart="$HOME/.toys/termart"
+alias open="xdg-open"
+alias o="open"
+alias plz='sudo $(fc -ln -1)'
+alias install="sudo pacman -S"
+alias grep="grep --color=auto"
+alias ls="ls -shN --color=auto --group-directories-first"
+alias may='MAKEFLAGS="-j$(nproc)" yay'
+alias f='ranger .'
+alias cat='ccat'
+alias c='cat'
+alias pa='pulseaudio'
+alias ga='git add .'
+alias gp='git push'
+alias gP='git pull'
+alias python='python3'
+alias p='python'
+alias pki='pkill --signal=SIGKILL'
+alias ram='ps axch -o cmd:15,%mem --sort=-%mem | head'
+alias cpu='ps axch -o cmd:15,%cpu --sort=-%cpu | head'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mhz='watch -n 1 "cat /proc/cpuinfo | grep MHz"'
+alias vi='vim'
+alias v='vim'
+alias slippi-online='slippi-online -u ~/.config/SlippiOnline/'
+
+if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
+  source "$HOME/.scripts/env/env.zshrc"
+fi

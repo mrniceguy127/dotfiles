@@ -153,6 +153,7 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
+
 [module/i3]
 type = internal/i3
 pin-workspaces = true
@@ -181,6 +182,21 @@ label-unfocused-background = ${colors.bg-light}
 label-unfocused-padding = 2
 
 strip-wsnumbers = true
+
+
+; This module config came from Reddit.
+; https://www.reddit.com/r/Polybar/comments/c3btgf/polybar_scripting_for_i3_modes/
+[module/i3-mode]
+exec=echo default && i3-msg -t subscribe -m '[ "mode" ]' | jq -r --unbuffered '.change'
+format=<label>
+;format-background=#282a36
+format-foreground=#e6e6e6
+format-padding=4
+format-prefix=" "
+label=%output%
+tail=true
+type=custom/script
+
 
 [module/bspwm]
 type = internal/bspwm
@@ -241,7 +257,7 @@ label-background = ${colors.bg-secondary}
 
 [module/wired-network]
 type = internal/network
-interface = enp0s31f6
+interface = enp39s0
 
 label-connected =  %downspeed:9:9%
 
