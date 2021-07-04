@@ -78,7 +78,7 @@ bottom=false
 
 modules-left = i3 bspwm
 modules-center = date time
-modules-right = github
+modules-right = cpu memory wired-network alsa
 
 monitor = ${env:MONITOR:}
 
@@ -89,14 +89,14 @@ bottom=false
 
 modules-left = i3 bspwm
 modules-center = date time
-modules-right = github
+modules-right = cpu memory wired-network alsa
 
 monitor = ${env:MONITOR:}
 
 [bar/prim-bar-bottom]
 inherit=bar/main
 
-modules-left = cpu memory wired-network alsa
+modules-left = i3-mode
 
 bottom=true
 
@@ -109,7 +109,7 @@ tray-background = ${colors.bg-tray}
 [bar/sec-bar-bottom]
 inherit=bar/main
 
-modules-left = cpu memory wired-network alsa
+modules-left = i3-mode
 
 bottom=true
 
@@ -192,7 +192,7 @@ format=<label>
 ;format-background=#282a36
 format-foreground=#e6e6e6
 format-padding=4
-format-prefix=" "
+format-prefix=""
 label=%output%
 tail=true
 type=custom/script

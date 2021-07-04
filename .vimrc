@@ -111,3 +111,8 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 " Code stuff
 
 set shiftwidth=2
+
+
+" Unbind middle mouse (I hate middle mouse paste!!!)
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>

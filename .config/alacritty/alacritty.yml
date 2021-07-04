@@ -38,3 +38,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
+
+mouse_bindings:
+  - { mouse: Middle, action: None }
