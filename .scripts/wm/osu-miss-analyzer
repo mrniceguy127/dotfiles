@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ -n "$TERMATT" ]] ; then
+  /nvme1/games/tools/OsuMissAnalyzer_linux/OsuMissAnalyzer
+fi

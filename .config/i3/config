@@ -327,7 +327,6 @@ mode "resolution" {
 
 bindsym $mod+Shift+y mode "resolution"
 
-
 # Game shortcuts
 #   osu!
 #     start
@@ -366,6 +365,9 @@ bindsym $mod+Mod1+Left focus output left
 bindsym $mod+grave exec $scripts_dir/tab-aa
 #   Main monitor full
 bindsym $mod+Shift+grave exec $scripts_dir/tab-aa-main-mon
+
+# OsuMissAnalyzer
+bindsym $mod+Control+Shift+t exec $scripts_dir/osu-miss-analyzer
 
 #Lock screen
 # betterlockscreen https://github.com/pavanjadhaw/betterlockscreen

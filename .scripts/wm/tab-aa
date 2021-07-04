@@ -29,12 +29,41 @@ if [[ -n "$TERMATT" ]]; then
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 6138x2740+1920+0; echo $?)
  
   # Stylus names - These change randomly for some stupid reason
-  STYLUS_NAME='Wacom Intuos S Pen stylus'
+  #STYLUS_NAME='Wacom Intuos S Pen stylus'
   #STYLUS_NAME='Wacom Intuos S Pen Pen (0)'
 
   ###MAIN###
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5934x3165+1920+0; echo $?)
-  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5340x3004+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5340x3004+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 5760x3240+1920+0; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3840x2160+1920+0; echo $?)
+  #(1920 * 1.9)x(1080 * 1.9 * 0.912162162162 (for adjusting to true aspect ratio. tablet is not 16:9)) ; 16:9
+  #Before adjustment:
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3648x2052+1440+0; echo $?)
+  ###TOO_BIG###XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3648x2052+1840-300; echo $?)
+  ###SLIGHTLY_TOO_BIG###XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3840x2160+1440+0; echo $?)
+  #
+  #
+  #
+  #
+  #
+  #
+  #
+  #
+  XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4032x2268+1440+0; echo $?)
+  #
+  #
+  #
+  #
+  #
+  #
+  #
+  #
+  #
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3948x2052+1840-300; echo $?)
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3360x1890+1920+0; echo $?)
+  # After adjustment:
+  #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3648x1872+1920+0; echo $?)
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 3840x2160+1920+0; echo $?)
   #XINPUT_EXIT_CODE=$(xsetwacom set 'Wacom Intuos S Pen stylus' MapToOutput 4800x2700+1920+0; echo $?)
 #ONE MON

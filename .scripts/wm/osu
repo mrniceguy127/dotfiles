@@ -1,19 +1,20 @@
 #!/bin/zsh
 
 source "$HOME/.scripts/wm/termatt"
+STYLUS_NAME='Wacom Intuos S Pen stylus'
 
 if [[ -n "$TERMATT" ]]; then
   WM_SCRIPTS="$HOME/.scripts/wm"
 
-  ACTIVE_AREA_SCRIPT="$WM_SCRIPTS/tab-aa"
-  PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
-  while [ $PEN_FOUND -gt 0 ]; do
-    sleep 1
-    PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
-  done
+  #ACTIVE_AREA_SCRIPT="$WM_SCRIPTS/tab-aa"
+  #PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
+  #while [ $PEN_FOUND -gt 0 ]; do
+  #  sleep 1
+  #  PEN_FOUND=$($ACTIVE_AREA_SCRIPT; echo $?)
+  #done
 
-  xsetwacom --set "Wacom Intuos S Pen Pen (0)" Button 2 key "shift"
-  xsetwacom --set "Wacom Intuos S Pen Pen (0)" Button 3 key "shift"
+  #xsetwacom --set "$STYLUS_NAME" Button 2 key "shift"
+  #xsetwacom --set "$STYLUS_NAME" Button 3 key "shift"
 
 
   KILL_PICOM_SCRIPT="$WM_SCRIPTS/picom-kill"

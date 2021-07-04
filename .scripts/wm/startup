@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# xbindkeys (For disabling middle mouse paste)
+xbindkeys &
+
+
+
+# Specific environment
 source "$HOME/.scripts/wm/termatt"
 
 if [[ -n "$TERMATT" ]]; then

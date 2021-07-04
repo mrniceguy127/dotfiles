@@ -54,5 +54,6 @@ backup_file ".vimrc"
 backup_file ".zprofile"
 backup_file ".zshrc"
 backup_file ".Xresources"
+backup_file ".xbindkeysrc"
 
 echo "Done!"
