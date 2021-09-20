@@ -278,10 +278,13 @@ bindsym $mod+Control+Shift+c exec $scripts_dir/compton
 bindsym $mod+Control+c exec $scripts_dir/compton-kill
 
 # Start compositor
-exec --no-startup-id $scripts_dir/compton &
+exec --no-startup-id $scripts_dir/picom
 
 # Polybar
-exec --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id ~/.config/polybar/launch.sh
+
+# i3 Startup Scripts
+exec --no-startup-id $scripts_dir/startup
 
 # Window assignments
 assign [class="Wine"] $ws4
@@ -293,9 +296,6 @@ assign [class="Slack"] $ws5
 assign [class="firefox"] $ws2
 for_window [class="Spotify"] move to workspace $ws2 # assign [class="Spotify"] $ws2 # Known issue with spotify, use work around
 for_window [class="Spotify"] layout tabbed
-
-# i3 Startup Scripts
-exec --no-startup-id $scripts_dir/startup &
 
 # Move work space to other monitor
 bindsym $mod+Control+Left move workspace to output left

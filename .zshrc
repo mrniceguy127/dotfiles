@@ -120,6 +120,8 @@ PROMPT="$(printf '$PROMPT_FIRST$PROMPT_DATETIME$PERCENT_F{8}\ue0b0$PERCENT_f\n$P
 
 alias update="yay -Syyu"
 alias termart="$HOME/.toys/termart"
+alias pichu="termart pichu"
+alias shaymin="termart shaymin"
 alias open="xdg-open"
 alias o="open"
 alias plz='sudo $(fc -ln -1)'
@@ -146,6 +148,6 @@ alias vi='vim'
 alias v='vim'
 alias slippi-online='slippi-online -u ~/.config/SlippiOnline/'
 
-if [[ -e "$HOME/.scripts/env/env.zshrc" ]]; then
-  source "$HOME/.scripts/env/env.zshrc"
+if [[ -e "$HOME/.scripts/env/zshrc" ]]; then
+  source "$HOME/.scripts/env/zshrc"
 fi

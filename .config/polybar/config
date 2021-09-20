@@ -148,7 +148,14 @@ type = internal/pulseaudio
 format-volume-padding = 3
 format-volume-background = ${colors.bg-secondary}
 
+format-muted-padding = 3
+format-muted-background = ${colors.bg-secondary}
+
 format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+
+label-muted = MUTED
+
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 

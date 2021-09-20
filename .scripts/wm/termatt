@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TERMATT_FILE="$HOME/.scripts/env/env.termatt"
+TERMATT_FILE="$HOME/.scripts/env/termatt"
 
 if [[ -e "$TERMATT_FILE" ]] ; then
   source "$TERMATT_FILE"

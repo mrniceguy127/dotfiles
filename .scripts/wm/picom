@@ -3,4 +3,5 @@
 # use 'compton' for tryone-compton. Use 'picom' for vanilla picom (renamed from compton).
 COMPOSITOR="picom"
 
-$COMPOSITOR #--experimental-backends
+# Disabled, because picom is broken constantly
+#$COMPOSITOR #--experimental-backends
