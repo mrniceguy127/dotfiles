@@ -1,10 +1,11 @@
 #!/bin/bash
 
 DEFAULTWP="$1" # Default wallpaper if it hasn't been set before
-FEHBG="$HOME/.fehbg" # Last feh bg command script.
+CURR_WP="$HOME/.scripts/cache/wp/setwp-curr"
 
-if [[ -e "$FEHBG" ]]; then
-  $FEHBG
+if [[ -e "$CURR_WP" ]]; then
+  echo yes
+  $HOME/.scripts/usewpconf curr
 else
   $HOME/.scripts/setwp default "$DEFAULTWP"
 fi

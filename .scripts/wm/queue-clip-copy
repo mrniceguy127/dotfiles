@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source "$HOME/.scripts/wm/defs/queue-clip"
+
+echo "$(xclip -o)" >> "$CACHE_FILE"

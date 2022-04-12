@@ -6,8 +6,6 @@ if [[ -n "$TERMATT" ]]; then
   # Displays
   PRIM_DISP=$(xrandr --listmonitors | grep '+\*' | cut -d ' ' -f 6 | tr -d '[:space:]')
   SEC_DISP=$(xrandr --listmonitors | grep -v '+\*' | cut -d ' ' -f 6 | cut -d ' ' -f 1 | tr -d '[:space:]')
-  xrandr --output $PRIM_DISP --mode 1920x1080 --rate 144.00 --primary
-  xrandr --output $SEC_DISP --mode 1920x1080 --rate 144.00 --left-of $PRIM_DISP
-
+  xrandr --output $SEC_DISP --off
   $HOME/.config/polybar/launch.sh
 fi

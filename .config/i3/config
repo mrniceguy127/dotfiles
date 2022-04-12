@@ -281,7 +281,7 @@ bindsym $mod+Control+c exec $scripts_dir/compton-kill
 exec --no-startup-id $scripts_dir/picom
 
 # Polybar
-exec --no-startup-id ~/.config/polybar/launch.sh
+exec ~/.config/polybar/launch.sh
 
 # i3 Startup Scripts
 exec --no-startup-id $scripts_dir/startup
@@ -321,6 +321,8 @@ mode "resolution" {
   bindsym 1 exec $scripts_dir/60hz-primary-display
 # Touhou Mode
   bindsym 2 exec $scripts_dir/touhou-display
+# Console mode (mirror)
+  bindsym 3 exec $scripts_dir/console-mode-display
 
   bindsym Escape mode "default"
 }
@@ -369,7 +371,7 @@ bindsym $mod+Shift+grave exec $scripts_dir/tab-aa-main-mon
 # OsuMissAnalyzer
 bindsym $mod+Control+Shift+t exec $scripts_dir/osu-miss-analyzer
 
-#Lock screen
+# Lock screen
 # betterlockscreen https://github.com/pavanjadhaw/betterlockscreen
 bindsym $mod+Control+Shift+l exec betterlockscreen -l -t $lockscreenmsg
 # Logout immediately shortcut
@@ -380,6 +382,10 @@ bindsym $mod+Control+Shift+slash exec poweroff
 bindsym $mod+Control+Shift+period exec reboot
 # Hibernate shortcut
 bindsym $mod+Control+Shift+comma exec systemctl hibernate
+
+# Queue clip
+bindsym $mod+Mod1+c exec $scripts_dir/queue-clip-copy
+bindsym $mod+Mod1+v exec $scripts_dir/queue-clip-paste
 
 
 

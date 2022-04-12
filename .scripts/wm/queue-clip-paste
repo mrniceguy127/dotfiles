@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source "$HOME/.scripts/wm/defs/queue-clip"
+
+head -1 "$CACHE_FILE" | xclip -selection c | xclip -o
+
+tail +2 "$CACHE_FILE" > "$TMP_FILE" && cat "$TMP_FILE" > "$CACHE_FILE"
+

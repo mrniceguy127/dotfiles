@@ -107,6 +107,8 @@ PROMPT_FIRST='%F{blue}%K{black}░▒▓█%f%k%F{15}%K{blue}%n@%m%f%k%F{blue}%k
 #PROMPT_DATETIME="%K{8} $(date +"%D %T") %f%k"
 PROMPT_DATETIME="%K{8} %~ %f%k"
 PROMPT_SECOND='%F{white}%B#%b%f '
+
+# Please change these variable names later bestie :)
 PERCENT_K='%K'
 PERCENT_k='%k'
 PERCENT_F='%F'
@@ -130,7 +132,7 @@ alias grep="grep --color=auto"
 alias ls="ls -shN --color=auto --group-directories-first"
 alias may='MAKEFLAGS="-j$(nproc)" yay'
 alias f='ranger .'
-alias cat='ccat'
+# Causes too many problems: alias cat='ccat'
 alias c='cat'
 alias pa='pulseaudio'
 alias ga='git add .'

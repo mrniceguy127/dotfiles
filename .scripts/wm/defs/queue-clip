@@ -1,0 +1,6 @@
+#!/bin/bash
+
+CACHE_DIR="$HOME/.scripts/cache"
+CACHE_FILE="$CACHE_DIR/queue-clip"
+TMP_FILE="$CACHE_DIR/queue-clip-tmp"
+CLIP_SCRIPT="$HOME/.scripts/clip"

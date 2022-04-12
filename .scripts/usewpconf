@@ -1,20 +1,39 @@
 #!/bin/bash
 
 WP_CONF="$1"
-WP_CACHE_DIR="$HOME/.scripts/cache/wp"
+CACHE_DIR="$HOME/.scripts/cache"
+WP_CACHE_DIR="$CACHE_DIR/wp"
 WP_CACHE_FILE="$WP_CACHE_DIR/setwp-$WP_CONF"
 WP_CACHE_FILE_RELATIVE="./setwp-$WP_CONF" # For symlinks
 CURR_WP_FILE="$WP_CACHE_DIR/setwp-curr"
 WP_HOOK_SCRIPT="$HOME/.scripts/env/usewpconf/hook-$WP_CONF"
 WP_GLOBAL_HOOK_ENV="$HOME/.scripts/env/wp/global-hooks"
 NEW_WP="$WP_CACHE_FILE" # useful for quickly changing how wallpaper paths are resolved
+SWAYBG_PID_CACHE_FILE="$CACHE_DIR/swaybg-pid"
 
 
 source "$HOME/.scripts/wal-functions"
 
+set_sway_wp() {
+  if [[ -e "$SWAYBG_PID_CACHE_FILE" ]]; then
+    kill $(cat "$SWAYBG_PID_CACHE_FILE")
+  fi
+
+  swaybg -o "*" -i "$NEW_WP" -m fill &
+  local CURRENT_SWAYBG_PID=$!
+  echo $CURRENT_SWAYBG_PID test
+  echo "$CURRENT_SWAYBG_PID" > "$SWAYBG_PID_CACHE_FILE"
+}
+
+set_feh_wp() {
+  feh --bg-fill "$NEW_WP"
+}
+
 
 if [[ -e "$WP_CACHE_FILE" ]]; then
-  feh --bg-fill "$NEW_WP"
+  # Use feh and swaymsg output command (wayland)
+  set_feh_wp
+  set_sway_wp
 fi
 
 if [[ "$WP_CONF" != "curr" ]] ; then
