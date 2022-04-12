@@ -1,88 +1,25 @@
 #!/bin/bash
 
 # Assumes:
-#- repo is stored at ~/.dotfiles
 #- Using an Arch-based distro
 
-# Useful vars
 if [[ ! -n "$DOTFILES_DIR" ]] ; then
   DOTFILES_DIR="$HOME/.dotfiles"
 fi
-
-SCRIPTS_DIR="$DOTFILES_DIR/dotfile-utils"
-PKG_LISTINGS_DIR="$DOTFILES_DIR/pkgs"
-COMMUNITY_PKGS_LISTING_FILE="$PKG_LISTINGS_DIR/com-pkg-list"
-AUR_PKGS_LISTING_FILE="$PKG_LISTINGS_DIR/aur-pkg-list"
-OHMYZSH_DIR="$HOME/.oh-my-zsh" # oh-my-zsh install dir
 
 if [[ ! -n "$INSTALL_PKGS" ]] ; then
   INSTALL_PKGS=1
 fi
 
-if [[ ! -n "$INSTALL_AUR_PKGS" ]] ; then
-  INSTALL_AUR_PKGS=1
-fi
-
-if [[ ! -n "$INSTALL_COMMUNITY_PKGS" ]] ; then
-  INSTALL_COMMUNITY_PKGS=1
-fi
-
-# Useful functions
-#   Download from AUR
-download_aur_pkg() {
-    AUR_PKG="$1"
-    CACHE_DIR="$HOME/.cache/dotfiles"
-    
-    # Install
-    mkdir -p "$CACHE_DIR"
-    git clone "https://aur.archlinux.org/$AUR_PKG.git" "$CACHE_DIR/$AUR_PKG"
-    cd "$CACHE_DIR/$AUR_PKG"
-    makepkg -sic
-
-    # Clean up
-    chmod -R 755 "$HOME/.cache/dotfiles/$AUR_PKG"
-    cd && rm -r "$HOME/.cache/dotfiles/$AUR_PKG"
-}
-
-download_all_aur_pkgs() {
-  sudo pacman -S base-devel
-  for aur_pkg in $(< "$AUR_PKGS_LISTING_FILE") ; do
-    download_aur_pkg "$aur_pkg"
-  done
-  chmod -R 755 "$HOME/.cache/dotfiles"
-  cd && rm -r "$HOME/.cache/dotfiles"
-}
-
 if [[ "$INSTALL_PKGS" == "1" ]] ; then
-  if [[ "$INSTALL_COMMUNITY_PKGS" == "1" ]] ; then
-    # Pre-install pkgs
-    echo "Pacman: Refreshing package database..."
-    sudo pacman -Syy
-
-    # Install pkgs
-    echo "Installing community packages..."
-    sudo pacman -S $(cat "$COMMUNITY_PKGS_LISTING_FILE")
-  fi
-
-  if [[ "$INSTALL_AUR_PKGS" == "1" ]] ; then
-    echo "Installing AUR packages..."
-    download_all_aur_pkgs
-  fi
+  $SCRIPTS_DIR/archpkgs
 fi
 
 echo "Updating dotfiles..."
 $SCRIPTS_DIR/restdots
 
-#   oh-my-zsh
-echo "Installing oh-my-zsh..."
-if [[ ! -e "$OHMYZSH_DIR" ]] ; then
-  git clone https://github.com/ohmyzsh/ohmyzsh.git "$OHMYZSH_DIR"
-else
-  echo "oh-my-zsh directory already exists at $OHMYZSH_DIR. Aborting."
-fi
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-syntax-highlighting
-chmod -R 755 "$OHMYZSH_DIR"
+echo "Setting up zsh config..."
+$SCRIPTS_DIR/zshstuff
 
 #   Finish setup
 echo "Finalizing setup..."

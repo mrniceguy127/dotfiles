@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Useful vars
+if [[ ! -n "$DOTFILES_DIR" ]] ; then
+  DOTFILES_DIR="$HOME/.dotfiles"
+fi
+
+SCRIPTS_DIR="$DOTFILES_DIR/dotfile-utils"
+OHMYZSH_DIR="$HOME/.oh-my-zsh" # oh-my-zsh install dir
+
+#   oh-my-zsh
+echo "Installing oh-my-zsh..."
+if [[ ! -e "$OHMYZSH_DIR" ]] ; then
+  git clone https://github.com/ohmyzsh/ohmyzsh.git "$OHMYZSH_DIR"
+else
+  echo "oh-my-zsh directory already exists at $OHMYZSH_DIR. Aborting."
+fi
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-$OHMYZSH_DIR/custom}/plugins/zsh-syntax-highlighting
+chmod -R 755 "$OHMYZSH_DIR"
